@@ -10,10 +10,13 @@ import { ProjectsService } from './projects.service';
     styleUrls: ['projects.component.css'],
     providers: [ProjectsService]
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
     projects: Project[];    
 
     constructor(private projectsService: ProjectsService) { 
-        this.projects = projectsService.getProjects();
+    }
+
+    ngOnInit() {
+        this.projects = this.projectsService.getProjects();
     }
 }

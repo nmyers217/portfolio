@@ -1,5 +1,4 @@
 import { Component
-       , OnInit
        , AfterViewInit
        , ElementRef
        } from '@angular/core';
@@ -8,6 +7,7 @@ import { NavbarComponent   } from './navbar';
 import { HeroComponent     } from './hero';
 import { SkillsComponent   } from './skills';
 import { ProjectsComponent } from './projects';
+import { TimelineComponent } from './timeline';
 
 import { Util } from './shared/util';
 
@@ -20,15 +20,14 @@ import { Util } from './shared/util';
     NavbarComponent,
     HeroComponent,
     SkillsComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    TimelineComponent
   ]
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements AfterViewInit {
   brand = 'NM';
 
   constructor(private elementRef: ElementRef) {}
-
-  ngOnInit() {}
 
   ngAfterViewInit() {
     // TODO: Is there a better way to load these modules
