@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -7,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  @Input()
+  brand: string;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }

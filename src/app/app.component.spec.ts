@@ -13,8 +13,8 @@ describe('App: Portfolio', () => {
       expect(app).toBeTruthy();
     }));
 
-  it('should have as title \'Under Construction!\'',
+  it('should have brand as \'NM\'',
     inject([AppComponent], (app: AppComponent) => {
-      expect(app.title).toEqual('Under Construction!');
+      expect(app.brand).toEqual('NM');
     }));
 });
