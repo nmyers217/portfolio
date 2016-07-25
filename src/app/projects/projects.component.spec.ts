@@ -3,12 +3,12 @@
 import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { addProviders, async, inject } from '@angular/core/testing';
-import { SkillsComponent } from './skills.component';
-import { SkillsService   } from './skills.service'
+import { ProjectsComponent } from './projects.component';
+import { ProjectsService } from './projects.service';
 
-describe('Component: Skills', () => {
+describe('Component: Projects', () => {
   it('should create an instance', () => {
-    let component = new SkillsComponent(new SkillsService());
+    let component = new ProjectsComponent(new ProjectsService());
     expect(component).toBeTruthy();
   });
 });
