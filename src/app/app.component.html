@@ -1,7 +1,485 @@
-<app-navbar></app-navbar>
+<!-- Begin Header -->
+<header>
+	<!-- Begin Navigation -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="row">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand scroll-link" href="#home" data-id="home">
+						<span class="logo">NM</span>
+					</a>
+				</div>
 
-<!-- Main component for a primary marketing message or call to action -->
-<div class="jumbotron">
-    <h1>{{ title }}</h1>
-    <p>Check back soon to see what I build!</p>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#home" data-id="home" class="scroll-link">Home</a></li>
+						<li><a href="#skills" data-id="skills" class="scroll-link">Skills</a></li>
+						<li><a href="#work" data-id="work" class="scroll-link">Work</a></li>
+						<li><a href="#experience" data-id="experience" class="scroll-link">Experience</a></li>
+						<li><a href="#contact" data-id="contact" class="scroll-link">Contact</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div>
+		</div><!-- /.container-fluid -->
+	</nav>
+	<!-- End Navigation -->
+</header>
+<!-- End Header -->
+
+<!-- Begin Jumbotron -->
+<div class="jumbotron jumbotron-main" id="home">
+	<div id="particles-js"></div><!-- /.particles div -->
+	<div class="container center-vertically-holder">
+		<div class="center-vertically">
+			<div id="scaleReveal" class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">
+				<div class="big-logo scaleReveal">
+					<!-- TODO: I really need to get a better looking photo :( -->
+					<img src="images/Me.jpg">
+				</div>
+				<h1 class="scaleReveal">Hi, I'm Nick</h1>
+				<hr class="bottomReveal">
+				<p class="bottomReveal">I'm a Full Stack Web Developer in the Houston, TX area who is very passionate about programming and technology. In my free time I can be found watching scifi movies and envisioning the future.</p>
+				<a href="#skills" data-id="skills" class="scroll-link">
+					<div class="scroll-indicator rotateBottomReveal">
+						<span class="ion-mouse"></span><br>
+						<span class="ion-android-arrow-down arrow-scroll-indicator"></span>
+					</div>
+				</a>
+			</div><!-- /.column -->
+		</div><!-- /.vertical center -->
+	</div><!-- /.container -->
 </div>
+<!-- End Jumbotron -->
+
+
+<!-- Begin Skills -->
+<section id="skills" class="background2 section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 section-title text-center">
+				<h2>Skills</h2>
+				<span class="section-divider"></span>
+			</div><!-- /.column -->
+		</div><!-- /.row -->
+
+		<div class="row">
+			<!-- Item 1 -->
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+				<div class="services-box leftReveal">
+					<span class="ion-social-html5 services-icon"></span>
+					<span class="ion-social-css3 services-icon"></span>
+					<span class="ion-social-javascript services-icon"></span>
+					<h3 class="service-name">1. Front End</h3>
+					<p class="text-small">I can write HTML5 and CSS3 by hand and am up to date on many of the key developments in today's modern Javascript ecosystem.</p>
+				</div>
+			</div><!-- /.column -->	
+
+			<!-- Item 2 -->
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mt30-xs">
+				<div class="services-box topReveal">
+					<span class="ion-social-nodejs services-icon"></span>
+					<span class="ion-social-python services-icon"></span>
+					<span class="ion-social-windows services-icon"></span>
+					<h3 class="service-name">2. Back End</h3>
+					<p class="text-small">I've built websites and API's backed by Ruby on Rails, ASP.NET MVC, Python's Flask framework, and several Node.js frameworks.</p>
+				</div>
+			</div><!-- /.column -->	
+
+			<!-- Item 3 -->
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mt30-sm mt30-xs">
+				<div class="services-box rightReveal">
+					<span class="ion-briefcase services-icon"></span>
+					<h3 class="service-name">3. Databases</h3>
+					<p class="text-small">I have worked with SQL datbases and am formally educated in relational databasea theory, but I'm not afraid of NoSQL solutions either.</p>
+				</div>
+			</div><!-- /.column -->	
+
+			<!-- Item 4 -->
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mt30">
+				<div class="services-box bottomReveal">
+					<span class="ion-social-angular services-icon"></span>
+					<h3 class="service-name">4. Frameworks</h3>
+					<p class="text-small">I have experience with a variety of popular frameworks like Angular 2, Bootstrap, and JQuery.</p>
+				</div>
+			</div><!-- /.column -->	
+
+			<!-- Item 5 -->
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mt30">
+				<div class="services-box rightReveal">
+					<span class="ion-android-desktop services-icon"></span>
+					<span class="ion-android-laptop services-icon"></span>
+					<span class="ion-android-phone-portrait services-icon"></span>
+					<h3 class="service-name">5. Techniques</h3>
+					<p class="text-small">I'm well versed in Responsive Web Design, and understand how to achieve a pleasant mobile web experience.</p>
+				</div>
+			</div><!-- /.column -->	
+
+			<!-- Item 6 -->
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mt30">
+				<div class="services-box leftReveal">
+					<span class="ion-social-tux services-icon"></span>
+					<span class="ion-social-github services-icon"></span>
+					<span class="glyphicon glyphicon-console services-icon"></span>
+					<h3 class="service-name">6. Other</h3>
+					<p class="text-small">I'm not one to shy away from working on the terminal, and can configure a Linux server or work with Git.</p>
+				</div>
+			</div><!-- /.column -->	
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.section -->
+<!-- End Skills -->
+
+
+<!-- Begin Work -->
+<section id="work" class="background1 section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 section-title text-center">
+				<h2>Work</h2>
+				<span class="section-divider mb15"></span>
+				<p class="mb30 scaleReveal">Here are some of the cool things I've built!</p>
+			</div><!-- /.column -->
+		</div><!-- /.row -->
+		<div class="row">
+			<div class="col-xs-12 text-center mb50">
+				<!-- Filter Buttons -->
+				<button class="filter btn btn-default btn-category btn-lg" data-filter="all">All</button>
+				<button class="filter btn btn-default btn-category btn-lg" data-filter=".identity">Identity</button>
+				<button class="filter btn btn-default btn-category btn-lg" data-filter=".print">Print</button>
+				<button class="filter btn btn-default btn-category btn-lg" data-filter=".graphics">Graphics</button>
+				<button class="filter btn btn-default btn-category btn-lg" data-filter=".web">Web</button>
+			</div><!-- /.column -->
+		</div><!-- /.row -->
+		<div id="thework">
+			<!-- Item 1 -->
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 portfolio-box no-padding">
+				<div>
+					<img src="images/work/cataloginator.png" alt="cataloginator" class="img-responsive">
+				</div>
+				<span class="portfolio-hover">
+					<span>
+						<a href="https://cataloginator.herokuapp.com/" target="_blank">
+							<span class="portfolio-links">
+								<span class="ion-ios-arrow-right portfolio-links-icons"></span>
+							</span>
+						</a>
+						<a href="https://github.com/nickmyers217/catalog" target="_blank">
+							<span class="portfolio-links">
+								<span class="ion-social-github portfolio-links-icons"></span>
+							</span>
+						</a>
+						<span class="project-title no-margin-bottom mt10">Cataloginator</span>
+					</span>
+				</span>
+			</div><!-- /.column -->
+
+			<!-- Item 2 -->
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 portfolio-box no-padding">
+				<div>
+					<img src="images/work/pubmeddler.png" alt="pubmeddler" class="img-responsive">
+				</div>
+				<span class="portfolio-hover">
+					<span>
+						<a href="https://pubmeddler.herokuapp.com/" target="_blank">
+							<span class="portfolio-links">
+								<span class="ion-ios-arrow-right portfolio-links-icons"></span>
+							</span>
+						</a>
+						<a href="https://github.com/nickmyers217/pubmeddler" target="_blank">
+							<span class="portfolio-links">
+								<span class="ion-social-github portfolio-links-icons"></span>
+							</span>
+						</a>
+						<span class="project-title no-margin-bottom mt10">Pubmeddler</span>
+					</span>
+				</span>
+			</div><!-- /.column -->
+
+			<!-- Item 3 -->
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 portfolio-box no-padding">
+				<div>
+					<img src="images/work/restful.png" alt="RESTful rock paper sissors" class="img-responsive">
+				</div>
+				<span class="portfolio-hover">
+					<span>
+						<a href="https://github.com/NickMyers217/AppEngine_RockPaperScissors" target="_blank">
+							<span class="portfolio-links">
+								<span class="ion-social-github portfolio-links-icons"></span>
+							</span>
+						</a>
+						<span class="project-title no-margin-bottom mt10">RESTful Rock Paper Scissors</span>
+					</span>
+				</span>
+			</div><!-- /.column -->
+
+			<!-- Item 4 -->
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 portfolio-box no-padding">
+				<div>
+					<img src="images/work/raycaster.png" alt="raycaster" class="img-responsive">
+				</div>
+				<span class="portfolio-hover">
+					<span>
+						<a href="http://nickmyers217.github.io/raycaster/" target="_blank">
+							<span class="portfolio-links">
+								<span class="ion-ios-arrow-right portfolio-links-icons"></span>
+							</span>
+						</a>
+						<a href="https://github.com/nickmyers217/raycaster" target="_blank">
+							<span class="portfolio-links">
+								<span class="ion-social-github portfolio-links-icons"></span>
+							</span>
+						</a>
+						<span class="project-title no-margin-bottom mt10">Raycaster</span>
+					</span>
+				</span>
+			</div><!-- /.column -->
+
+			<!-- Item 5 -->
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 portfolio-box no-padding">
+				<div>
+					<img src="images/work/webgl.png" alt="es6 + webgl" class="img-responsive">
+				</div>
+				<span class="portfolio-hover">
+					<span>
+						<a href="http://nickmyers217.github.io/es6_threejs_stuff/dist/" target="_blank">
+							<span class="portfolio-links">
+								<span class="ion-ios-arrow-right portfolio-links-icons"></span>
+							</span>
+						</a>
+						<a href="https://github.com/nickmyers217/es6_threejs_stuff" target="_blank">
+							<span class="portfolio-links">
+								<span class="ion-social-github portfolio-links-icons"></span>
+							</span>
+						</a>
+						<span class="project-title no-margin-bottom mt10">ES6 + WebGL</span>
+					</span>
+				</span>
+			</div><!-- /.column -->
+
+			<!-- Item 6 -->
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 portfolio-box no-padding">
+				<div>
+					<img src="images/work/raytracer.png" alt="es6 raytracer" class="img-responsive">
+				</div>
+				<span class="portfolio-hover">
+					<span>
+						<a href="http://nickmyers217.github.io/raytracer_practice/" target="_blank">
+							<span class="portfolio-links">
+								<span class="ion-ios-arrow-right portfolio-links-icons"></span>
+							</span>
+						</a>
+						<a href="https://github.com/nickmyers217/raytracer_practice" target="_blank">
+							<span class="portfolio-links">
+								<span class="ion-social-github portfolio-links-icons"></span>
+							</span>
+						</a>
+						<span class="project-title no-margin-bottom mt10">ES6 Raytracer</span>
+					</span>
+				</span>
+			</div><!-- /.column -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.section -->
+<!-- End Work -->
+
+
+<!-- Begin Experience -->
+<section id="experience" class="background2 section-padding-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 section-title text-center">
+				<h2>Experience</h2>
+				<span class="section-divider"></span>
+			</div><!-- /.column -->
+		</div><!-- /.row -->
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="timeline pb80">
+
+					<!-- Item 1 -->
+					<li>
+						<div class="timeline-image scaleReveal"><img alt="" class="img-circle img-responsive" src="images/neudesic.jpg"></div>
+						<div class="timeline-panel leftReveal">
+							<div class="timeline-heading">
+								<h5 class="heading-1 mb15">2014</h5>
+								<h4 class="subheading">Neudesic</h4>
+							</div>
+							<div class="timeline-body">
+								<p>In March 2014 I began a year long internship at Neudesic's Amerishore Program. I acted as both a software quality assurance lead and business analyst during the implementation of a large custom built Sharepoint application.</p>
+							</div>
+						</div>
+					</li>
+
+					<!-- Item 2 -->
+					<li class="timeline-inverted">
+						<div class="timeline-image scaleReveal"><img alt="" class="img-circle img-responsive" src="images/UH.png"></div>
+						<div class="timeline-panel rightReveal">
+							<div class="timeline-heading">
+								<h5 class="heading-1 mb15">May 2015</h5>
+								<h4 class="subheading">University of Houston</h4>
+							</div>
+							<div class="timeline-body">
+								<p>In May 2015 I graduated from University of Houston's C.T. Bauer College of Business with a B.B.A. in Management Information Systems.</p>
+							</div>
+						</div>
+					</li>
+
+					<!-- Item 3 -->
+					<li>
+						<div class="timeline-image scaleReveal"><img alt="" class="img-circle img-responsive" src="images/accenture.jpg"></div>
+						<div class="timeline-panel leftReveal">
+							<div class="timeline-heading">
+								<h5 class="heading-1 mb15">August 2015</h5>
+								<h4 class="subheading">Accenture</h4>
+							</div>
+							<div class="timeline-body">
+								<p>In August 2015 I relocated to Seattle to begin working with Accenture as a Systems Analyst. I acted as an analyst for 9 months on an SAP implementation for one of the largest retail companies in the world.</p>
+							</div>
+						</div>
+					</li>
+
+					<!-- Item 4 -->
+					<li class="timeline-inverted">
+						<div  class="timeline-image scaleReveal"><img alt="" class="img-circle img-responsive" src="images/udacity.jpg"></div>
+						<div class="timeline-panel rightReveal">
+							<div class="timeline-heading">
+								<h5 class="heading-1 mb15">July 2016</h5>
+								<h4 class="subheading">Udacity</h4>
+							</div>
+							<div class="timeline-body">
+								<p>In July of 2016 I relocated back to Houston and graduated from Udacity's Full Stack Web Developer Nanodegree program. I spent 4 months in the program pushing my Web Development skills to the next level with content and coaching that was built in collaboration with industry leaders like AT&T and Google.</p>
+							</div>
+						</div>
+					</li>
+
+					<!-- Item 5 -->
+					<li>
+						<div  class="timeline-image scaleReveal"><img alt="" class="img-circle img-responsive" src="images/future.jpg"></div>
+						<div class="timeline-panel rightReveal">
+							<div class="timeline-heading">
+								<h5 class="heading-1 mb15">The Future</h5>
+								<h4 class="subheading">Working with you?</h4>
+							</div>
+							<div class="timeline-body">
+								<p>In the future I intend to take my skillset even further and master the web's newest technologies. Like Angular 2, React, ASP.NET Core, and others. Maybe we can build something amazing together.</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div><!-- /.column -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.section -->
+<!-- End Experience -->
+
+
+<!-- Begin Contact -->
+<section id="contact" class="background1 section-padding">
+	<div class="container">
+		<div class="row mb30">
+			<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 section-title text-center">
+				<h2>Contact</h2>
+				<span class="section-divider mb15"></span>
+				<p class="no-margin scaleReveal">Want to get in touch? You've come to the right place.</p>
+			</div><!-- /.column -->
+		</div><!-- /.row -->
+		<div class="row">
+			<div class="col-sm-5 col-lg-4">
+				<h5 class="heading-1 mb20">Email and Phone:</h5>
+				<p class="text-xs-small mb5"><strong class="text-switch">Email:</strong> nickbmyers217@gmail.com</p>
+				<p class="text-xs-small mb5"><strong class="text-switch">Phone:</strong> 713-320-8787</p>
+			</div><!-- /.column -->
+			<div class="col-sm-6 col-lg-7 mt30-xs">
+				<form data-toggle="validator" id="contactForm" name="contactForm">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<div class="controls">
+									<input class="form-control" data-error="This section is required."
+									 id="msg_subject" placeholder="Subject *" required="" type="text">
+									<div class="help-block with-errors"></div>
+								</div>
+							</div>
+						</div><!-- /.column -->
+						<div class="col-sm-6">
+							<div class="form-group">
+								<div class="controls">
+									<input class="form-control" id="phone" placeholder="Phone" type="text">
+								</div>
+							</div>
+						</div><!-- /.column -->
+					</div><!-- /.row -->
+					<div class="row mb10">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<div class="controls">
+									<input class="form-control" data-error="This section is required." id="name" placeholder="Your Name *" required="" type="text">
+									<div class="help-block with-errors"></div>
+								</div>
+							</div>
+						</div><!-- /.column -->
+						<div class="col-sm-6">
+							<div class="form-group">
+								<div class="controls">
+									<input class="email form-control" data-error="This section is required." id="email" placeholder="Email *" required="" type="email">
+									<div class="help-block with-errors"></div>
+								</div>
+							</div>
+						</div><!-- /.column -->
+					</div><!-- /.row -->
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<div class="controls">
+									<textarea class="form-control" data-error="This section is required." id="message" placeholder="Message *" required="" rows="5"></textarea>
+									<div class="help-block with-errors"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mt15">
+						<div class="col-sm-6">
+							<div id="msgSubmit" class="h4 hidden mt10 no-margin-bottom"></div> 
+						</div><!-- /.column -->
+						<div class="col-sm-6 text-right">
+							<button type="submit" id="submit" class="btn btn-default btn-lg">Send</button>
+						</div><!-- /.column -->
+					</div><!-- /.row -->
+				</form><!-- /.form -->
+			</div><!-- /.column -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section><!-- /.section -->
+<!-- End Contact -->
+
+
+<!-- Begin Footer -->
+<footer class="background2 footer-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2 text-center">
+				<span class="icon-handle-streamline-vector logo"></span>
+				<h2 class="theme-title"><span class="theme-title-smaller">PDF Resume</span></h2>
+				<a href="#"><span class="ion-social-twitter social-icons-dark-hover mr15"></span></a>
+				<a href="#"><span class="ion-social-facebook social-icons-dark-hover mr15"></span></a>
+				<a href="#"><span class="ion-social-googleplus-outline social-icons-dark-hover"></span></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2 text-small text-center">
+				<hr>
+				<button type="button" class="btn btn-primary btn-up-footer btn-lg scroll-top">Up</button>
+				<p class="no-margin">&copy; Nicholas Myers</p>
+			</div><!-- /.column -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</footer><!-- /.footer -->
+<!-- Begin Footer -->
