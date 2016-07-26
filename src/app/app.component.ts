@@ -37,10 +37,7 @@ export class AppComponent implements AfterViewInit {
         // TODO: Is there a better way to load these modules
         // into the DOM after the component?
         // They are pretty old and don't follow any module conventions
-        Util.addScriptToDOM('js/particles.min.js', this.elementRef)
-            .then(() => {
-                Util.addScriptToDOM('js/particlesRun.js', this.elementRef)
-            })
+        Util.addScriptToDOM('js/particles.js', this.elementRef)
             .then(() => {
                 Util.addScriptToDOM('js/main.js', this.elementRef);
             })
