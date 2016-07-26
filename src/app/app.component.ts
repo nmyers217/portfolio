@@ -1,8 +1,8 @@
 import { Component
-    , AfterViewInit
-    , ElementRef
-} from '@angular/core';
-
+       , AfterViewInit
+       , ElementRef
+       } from '@angular/core';
+       
 import { NavbarComponent   } from './navbar';
 import { HeroComponent     } from './hero';
 import { SkillsComponent   } from './skills';
@@ -19,13 +19,13 @@ import { Util } from './shared/util';
     templateUrl: 'app.component.html',
     styleUrls: ['app.component.css'],
     directives: [
-    NavbarComponent,
-    HeroComponent,
-    SkillsComponent,
-    ProjectsComponent,
-    TimelineComponent,
-    ContactComponent,
-    FooterComponent
+        NavbarComponent,
+        HeroComponent,
+        SkillsComponent,
+        ProjectsComponent,
+        TimelineComponent,
+        ContactComponent,
+        FooterComponent
     ]
 })
 export class AppComponent implements AfterViewInit {
