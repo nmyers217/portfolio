@@ -1,0 +1,10 @@
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mt30">
+    <div class="services-box {{ skill.animation }}">
+        <span 
+            *ngFor="let icon of skill.icons"
+            [attr.class]="icon + ' services-icon'">
+        </span>
+        <h3 class="service-name">{{ skill.title }}</h3>
+        <p class="text-small">{{ skill.desc }}</p>
+    </div>
+</div>

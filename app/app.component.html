@@ -1,7 +1,30 @@
-<app-navbar></app-navbar>
+<!-- Begin Header -->
+<header>
+	<app-navbar [brand]="brand">
+	</app-navbar>
+</header>
+<!-- End Header -->
 
-<!-- Main component for a primary marketing message or call to action -->
-<div class="jumbotron">
-    <h1>{{ title }}</h1>
-    <p>Check back soon to see what I build!</p>
-</div>
+<!-- Begin Jumbotron -->
+<app-hero></app-hero>
+<!-- End Jumbotron -->
+
+<!-- Begin Skills -->
+<app-skills></app-skills>
+<!-- End Skills -->
+
+<!-- Begin Work -->
+<app-projects></app-projects>
+<!-- End Work -->
+
+<!-- Begin Experience -->
+<app-timeline></app-timeline>
+<!-- End Experience -->
+
+<!-- Begin Contact -->
+<app-contact></app-contact>
+<!-- End Contact -->
+
+<!-- Begin Footer -->
+<app-footer></app-footer>
+<!-- End Footer -->

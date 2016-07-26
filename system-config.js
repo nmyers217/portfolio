@@ -29,6 +29,13 @@ var barrels = [
     'app',
     'app/shared',
     'app/navbar',
+    'app/hero',
+    'app/skills',
+    'app/skills/skill',
+    'app/projects',
+    'app/timeline',
+    'app/contact',
+    'app/footer',
 ];
 var cliSystemConfigPackages = {};
 barrels.forEach(function (barrelName) {
