@@ -17,6 +17,7 @@
 				<form 
 					[ngFormModel]="contactForm"
 					(submit)="sendMessage($event)"
+					#form="ngForm"
 					id="contactForm"
 					name="contactForm">
 					<div class="row">
@@ -25,12 +26,16 @@
 								<div class="controls">
 									<input 
 										ngControl="subject"
+										#subject="ngForm"
 										id="subject"
 										class="form-control"
 										type="text"
-									 	placeholder="Subject *"
-									 	required>
-									<div class="help-block with-errors"></div>
+									 	placeholder="Subject *">
+									<div 
+										*ngIf="subject.touched && !subject.valid"
+										class="help-block with-errors">
+										Subject is required.
+									</div>
 								</div>
 							</div>
 						</div>
@@ -53,12 +58,16 @@
 								<div class="controls">
 									<input 
 										ngControl="name"
+										#name="ngForm"
 										id="name"
 										type="text"
 										class="form-control"
-										placeholder="Your Name *"
-										required>
-									<div class="help-block with-errors"></div>
+										placeholder="Your Name *">
+									<div
+										*ngIf="name.touched && !name.valid"
+										class="help-block with-errors">
+										Name is required.
+									</div>
 								</div>
 							</div>
 						</div>
@@ -67,12 +76,17 @@
 								<div class="controls">
 									<input
 										ngControl="email"
+										#email="ngForm"
 										id="email"
 										type="email"
 										class="email form-control"
 										placeholder="Email *"
 										required>
-									<div class="help-block with-errors"></div>
+									<div 
+										*ngIf="email.touched && !email.valid"
+										class="help-block with-errors">
+										Email address is required.
+									</div>
 								</div>
 							</div>
 						</div>
@@ -83,23 +97,50 @@
 								<div class="controls">
 									<textarea
 										ngControl="message"
+										#message="ngForm"
 										id="message"
 										rows="5"
 										class="form-control"
-										placeholder="Message *"
-										required>
+										placeholder="Message *">
 									</textarea>
-									<div class="help-block with-errors"></div>
+									<div 
+										*ngIf="message.touched && !message.valid"
+										class="help-block with-errors">
+										Message is required.
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="row mt15">
 						<div class="col-sm-6">
-							<div id="msgSubmit" class="h4 hidden mt10 no-margin-bottom"></div> 
+							<div 
+								*ngIf="AJAXfinished"
+								[ngSwitch]="requestSuccess"
+								id="msgSubmit"
+								class="h4 mt10 no-margin-bottom">
+								<div 
+									*ngSwitchCase="true"
+									class="alert alert-success revealLeft">
+									I got your message!
+								</div>
+								<div 
+									*ngSwitchCase="false"
+									class="alert alert-danger revealLeft">
+									There was a problem. Please try again.
+								</div>
+							</div> 
 						</div>
-						<div class="col-sm-6 text-right">
-							<button type="submit" id="submit" class="btn btn-default btn-lg">Send</button>
+						<div 
+							*ngIf="!sendingAJAX"
+							class="col-sm-6 text-right">
+							<button 
+								[disabled]="!form.valid"
+								type="submit" 
+								id="submit"
+								class="btn btn-primary btn-lg">
+								Send
+							</button>
 						</div>
 					</div>
 				</form>
