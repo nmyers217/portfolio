@@ -14,13 +14,22 @@
 				<p class="text-xs-small mb5"><strong class="text-switch">Phone:</strong> 713-320-8787</p>
 			</div>
 			<div class="col-sm-6 col-lg-7 mt30-xs">
-				<form data-toggle="validator" id="contactForm" name="contactForm">
+				<form 
+					[ngFormModel]="contactForm"
+					(submit)="sendMessage($event)"
+					id="contactForm"
+					name="contactForm">
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
 								<div class="controls">
-									<input class="form-control" data-error="This section is required."
-									 id="msg_subject" placeholder="Subject *" required="" type="text">
+									<input 
+										ngControl="subject"
+										id="subject"
+										class="form-control"
+										type="text"
+									 	placeholder="Subject *"
+									 	required>
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
@@ -28,7 +37,12 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<div class="controls">
-									<input class="form-control" id="phone" placeholder="Phone" type="text">
+									<input 
+										ngControl="phone"
+										id="phone"
+										class="form-control"
+										placeholder="Phone"
+										type="text">
 								</div>
 							</div>
 						</div>
@@ -37,7 +51,13 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<div class="controls">
-									<input class="form-control" data-error="This section is required." id="name" placeholder="Your Name *" required="" type="text">
+									<input 
+										ngControl="name"
+										id="name"
+										type="text"
+										class="form-control"
+										placeholder="Your Name *"
+										required>
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
@@ -45,17 +65,30 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<div class="controls">
-									<input class="email form-control" data-error="This section is required." id="email" placeholder="Email *" required="" type="email">
+									<input
+										ngControl="email"
+										id="email"
+										type="email"
+										class="email form-control"
+										placeholder="Email *"
+										required>
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
 						</div>
-					</div><!-- /.row -->
+					</div>
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="form-group">
 								<div class="controls">
-									<textarea class="form-control" data-error="This section is required." id="message" placeholder="Message *" required="" rows="5"></textarea>
+									<textarea
+										ngControl="message"
+										id="message"
+										rows="5"
+										class="form-control"
+										placeholder="Message *"
+										required>
+									</textarea>
 									<div class="help-block with-errors"></div>
 								</div>
 							</div>
