@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, ControlGroup, Validators } from '@angular/common';
+import { FormBuilder, ControlGroup, Control, Validators } from '@angular/common';
 import { HTTP_PROVIDERS } from '@angular/http';
 
 import { ContactService } from './contact.service';
@@ -39,6 +39,13 @@ export class ContactComponent implements OnInit {
                 this.sendingAJAX = false;
                 this.requestSuccess = res.success ? true : false;
                 this.AJAXfinished = true;
+
+                if (this.requestSuccess) {
+                    for(var name in this.contactForm.controls) {
+                        (<Control>this.contactForm.controls[name]).updateValue('');
+                        this.contactForm.controls[name].setErrors(null);
+                    }
+                }
             });
     }
 }
