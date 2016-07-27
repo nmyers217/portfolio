@@ -1363,7 +1363,7 @@ span.portfolio-hover a {
     -webkit-box-shadow: none !important;
 }
 
-#contact .has-error .form-control {
+#contact .ng-invalid .form-control {
     border-color: #2F2F2F;
 }
 
@@ -1373,7 +1373,7 @@ span.portfolio-hover a {
     font-weight: 400;
 }
 
-#contact .has-error .form-control:focus {
+#contact .ng-invalid .form-control:focus {
     border-color: #2F2F2F;
 }
 
