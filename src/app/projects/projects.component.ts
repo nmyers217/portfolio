@@ -11,12 +11,14 @@ import { ProjectsService } from './projects.service';
     providers: [ProjectsService]
 })
 export class ProjectsComponent implements OnInit {
+    categories: string[];
     projects: Project[];    
 
     constructor(private projectsService: ProjectsService) { 
     }
 
     ngOnInit() {
+        this.categories = this.projectsService.getCategories();
         this.projects = this.projectsService.getProjects();
     }
 }
