@@ -12,9 +12,9 @@ import { ContactService } from './contact.service';
     providers: [HTTP_PROVIDERS, ContactService]
 })
 export class ContactComponent implements OnInit {
-    sendingAJAX: boolean = false;
-    AJAXfinished: boolean = false;
-    requestSuccess: boolean = false;
+    requestSent: boolean = false;
+    requestFinished: boolean = false;
+    requestSuccessful: boolean = false;
     contactForm: ControlGroup;
 
     constructor(private fb: FormBuilder, private cs: ContactService) {}
@@ -30,22 +30,14 @@ export class ContactComponent implements OnInit {
     }
 
     sendMessage(e) {
-        this.sendingAJAX = true;
+        this.requestSent = true;
 
         this.cs.formSpreePost(this.contactForm.value)
             .subscribe(res => {
                 console.log(res);
 
-                this.sendingAJAX = false;
-                this.requestSuccess = res.success ? true : false;
-                this.AJAXfinished = true;
-
-                if (this.requestSuccess) {
-                    for(var name in this.contactForm.controls) {
-                        (<Control>this.contactForm.controls[name]).updateValue('');
-                        this.contactForm.controls[name].setErrors(null);
-                    }
-                }
+                this.requestSuccessful = res.success ? true : false;
+                this.requestFinished = true;
             });
     }
 }

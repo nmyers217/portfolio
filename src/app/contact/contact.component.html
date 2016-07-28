@@ -113,10 +113,26 @@
 						</div>
 					</div>
 					<div class="row mt15">
-						<div class="col-sm-6">
+						<div 
+							*ngIf="!requestSent"
+							class="col-sm-6">
+						</div>
+						<div 
+							*ngIf="!requestSent"
+							class="col-sm-6 text-right">
+							<button 
+								[disabled]="!form.valid"
+								type="submit" 
+								id="submit"
+								class="btn btn-primary btn-lg">
+								Send
+							</button>
+						</div>
+						<div 
+							*ngIf="requestSent && requestFinished"
+							class="col-sm-12">
 							<div 
-								*ngIf="AJAXfinished"
-								[ngSwitch]="requestSuccess"
+								[ngSwitch]="requestSuccessful"
 								id="msgSubmit"
 								class="h4 mt10 no-margin-bottom">
 								<div 
@@ -130,17 +146,6 @@
 									There was a problem. Please try again.
 								</div>
 							</div> 
-						</div>
-						<div 
-							*ngIf="!sendingAJAX"
-							class="col-sm-6 text-right">
-							<button 
-								[disabled]="!form.valid"
-								type="submit" 
-								id="submit"
-								class="btn btn-primary btn-lg">
-								Send
-							</button>
 						</div>
 					</div>
 				</form>
