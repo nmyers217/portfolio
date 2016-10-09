@@ -1,48 +1,50 @@
 <section id="work" class="background1 section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 section-title text-center">
-                <h2>Work</h2>
-                <span class="section-divider mb15"></span>
-                <p class="mb30 scaleReveal">Here are some of the cool things I've built!</p>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 section-title text-center">
+        <h2>Work</h2>
+        <span class="section-divider mb15"></span>
+        <p class="mb30 scaleReveal">Here are some of the cool things I've built!</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 text-center mb50">
+        <!-- Filter Buttons -->
+        <button class="filter btn btn-default btn-category btn-lg" data-filter="all">All</button>
+        <button
+          *ngFor="let cat of categories"
+          class="filter btn btn-default btn-category btn-lg"
+          [attr.data-filter]="'.' + cat.toLowerCase()">
+          {{ cat }}
+        </button>
+      </div>
+    </div>
+
+    <div id="thework">
+      <div
+        *ngFor="let project of projects"
+        class="col-xs-12 col-sm-6 col-md-4 col-lg-4 portfolio-box no-padding mix {{ project.tags.join(' ') }}">
+        <div>
+          <img src="{{ project.image }}" alt="{{ project.title }}" class="img-responsive project-img">
         </div>
-        <div class="row">
-            <div class="col-xs-12 text-center mb50">
-                <!-- Filter Buttons -->
-                <button class="filter btn btn-default btn-category btn-lg" data-filter="all">All</button>
-				<button 
-					*ngFor="let cat of categories"
-					class="filter btn btn-default btn-category btn-lg"	
-					[attr.data-filter]="'.' + cat.toLowerCase()">
-					{{ cat }}
-				</button>
-            </div>
-        </div>
-		<div id="thework">
-			<div
-	   			*ngFor="let project of projects"
-				class="col-xs-12 col-sm-6 col-md-4 col-lg-4 portfolio-box no-padding mix {{ project.tags.join(' ') }}">
-				<div>
-					<img src="{{ project.image }}" alt="{{ project.title }}" class="img-responsive project-img">
-				</div>
-				<span class="portfolio-hover">
-					<span>
-						<a *ngIf="project.url"
-		                   href="{{ project.url }}" target="_blank">
-							<span class="portfolio-links">
-								<span class="ion-ios-arrow-right portfolio-links-icons"></span>
-							</span>
-						</a>
-						<a href="{{ project.github }}" target="_blank">
-							<span class="portfolio-links">
-								<span class="ion-social-github portfolio-links-icons"></span>
-							</span>
-						</a>
-						<span class="project-title no-margin-bottom mt10">{{ project.title }}</span>
-					</span>
-				</span>
-			</div>
-		</div>
-	</div>
+        <span class="portfolio-hover">
+          <span>
+            <a *ngIf="project.url"
+              href="{{ project.url }}" target="_blank">
+              <span class="portfolio-links">
+                <span class="ion-ios-arrow-right portfolio-links-icons"></span>
+              </span>
+            </a>
+            <a href="{{ project.github }}" target="_blank">
+              <span class="portfolio-links">
+                <span class="ion-social-github portfolio-links-icons"></span>
+              </span>
+            </a>
+            <span class="project-title no-margin-bottom mt10">{{ project.title }}</span>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
 </section>
