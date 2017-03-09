@@ -607,4 +607,8 @@ Object.deepExtend = function(e, a) {
             } else console.log("Error pJS - XMLHttpRequest status: " + i.status), console.log("Error pJS - File config not found")
     }, i.send()
 };
-particlesJS("particles-js");
+
+$('document').ready(function() {
+    particlesJS("particles-js");
+});
+
