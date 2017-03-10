@@ -1,3 +1,4 @@
-# Portfolio
-
-This is my personal website and portfolio. I built it using the latest versions of Angular 2, Typescript, and the Angular CLI.
+# My Portfolio
+This is my personal website and portfolio that I built primarily using React!
+## Installation
+Clone it, run npm install, and then npm start!
