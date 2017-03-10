@@ -3,15 +3,24 @@ import ReactDom from 'react-dom';
 
 import App from './App';
 
-const mountOldScripts = () => {
-  let mainScript = document.createElement('script');
-  mainScript.src = '/js/main.js';
-  let particlesScript = document.createElement('script');
-  particlesScript.src = '/js/particles.js';
+const scriptsToMount = [
+  '/js/particles.js',
+  '/js/main.js'
+]
 
-  let body = document.body;
-  body.append(mainScript);
-  body.appendChild(particlesScript);
+const mountOldScripts = (scriptsToMount) => {
+  const makeScript = (path) => {
+    let script = document.createElement('script'); script.src = path;
+    return script;
+  }
+
+  scriptsToMount
+    .map(makeScript)
+    .forEach(script => document.body.append(script))
 }
 
-ReactDom.render(<App />, document.getElementById('root'), mountOldScripts);
+ReactDom.render(
+  <App />,
+  document.getElementById('root'),
+  () => mountOldScripts(scriptsToMount)
+);
