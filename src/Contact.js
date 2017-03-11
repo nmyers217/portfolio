@@ -21,6 +21,24 @@ const TextField = ({ name, isTouched, isRequired, isValid }) => (
 );
 
 class Contact extends Component {
+  // TODO: Write form submission code
+  formSpreeSubmit() {
+    const url = 'https://formspree.io/nickbmyers217@gmail.com';
+    const data = {
+      message: `
+        Subject: ${formData.subject}
+        Name:    ${formData.name}
+        Email:   ${formData.email}
+        Phone:   ${formData.phone}
+
+        ${formData.message}
+      `
+    }
+
+    return this.http.post(url, data).map(res => res.json())
+  }
+
+  // TODO: Write form validation code
   render() {
     return (
       <section id="contact" className="background1 section-padding">
