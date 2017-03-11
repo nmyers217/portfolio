@@ -1,5 +1,25 @@
 import React, { Component } from 'react';
 
+const Alert = ({ type, message }) => (
+  <div className={`alert ${type} revealLeft`}>
+    {message}
+  </div>
+);
+
+const Validation = ({ message }) => (
+  <div className="help-block with-errors" style={{color: 'red', fontSize: '12px'}}>
+    {message}
+  </div>
+);
+
+const TextField = ({ name, isTouched, isRequired, isValid }) => (
+  <div>
+    <input id={name} className="form-control" type="text" placeholder={isRequired ? name + ' *' : name}
+      style={isTouched && !isValid ? {borderBottom: '2px solid red'} : {}} />
+    { isTouched && isRequired && !isValid && <Validation message={`${name} is required.`} /> }
+  </div>
+);
+
 class Contact extends Component {
   render() {
     return (
@@ -24,17 +44,14 @@ class Contact extends Component {
                   <div className="col-sm-6">
                     <div className="form-group">
                       <div className="controls">
-                        <input id="subject" className="form-control" type="text" placeholder="Subject *" />
-                        <div className="help-block with-errors">
-                          Subject is required.
-									      </div>
+                        <TextField name="Subject" isTouched={true} isRequired={true} isValid={false} />
                       </div>
                     </div>
                   </div>
                   <div className="col-sm-6">
                     <div className="form-group">
                       <div className="controls">
-                        <input id="phone" className="form-control" placeholder="Phone" type="text" />
+                        <TextField name="Phone" isTouched={false} isRequired={false} isValid={true} />
                       </div>
                     </div>
                   </div>
@@ -43,20 +60,14 @@ class Contact extends Component {
                   <div className="col-sm-6">
                     <div className="form-group">
                       <div className="controls">
-                        <input id="name" type="text" className="form-control" placeholder="Your Name *" />
-                        <div className="help-block with-errors">
-                          Name is required.
-									      </div>
+                        <TextField name="Name" isTouched={false} isRequired={true} isValid={true} />
                       </div>
                     </div>
                   </div>
                   <div className="col-sm-6">
                     <div className="form-group">
                       <div className="controls">
-                        <input id="email" type="email" className="email form-control" placeholder="Email *" required />
-                        <div className="help-block with-errors">
-                          Email address is required.
-									      </div>
+                        <TextField name="Email" isTouched={false} isRequired={true} isValid={true} />
                       </div>
                     </div>
                   </div>
@@ -67,9 +78,7 @@ class Contact extends Component {
                       <div className="controls">
                         <textarea id="message" rows="5" className="form-control" placeholder="Message *">
                         </textarea>
-                        <div className="help-block with-errors">
-                          Message is required.
-									      </div>
+                        <Validation message="Message is required." />
                       </div>
                     </div>
                   </div>
@@ -80,16 +89,12 @@ class Contact extends Component {
                   <div className="col-sm-6 text-right">
                     <button type="submit" id="submit" className="btn btn-primary btn-lg">
                       Send
-							      </button>
+                    </button>
                   </div>
                   <div className="col-sm-12">
                     <div id="msgSubmit" className="h4 mt10 no-margin-bottom">
-                      <div className="alert alert-success revealLeft">
-                        I got your message!
-								      </div>
-                      <div className="alert alert-danger revealLeft">
-                        There was a problem. Please try again.
-								      </div>
+                      <Alert type="alert-success" message="I got your message!" />
+                      <Alert type="alert-danger"  message="There was a problem. Please try again." />
                     </div>
                   </div>
                 </div>

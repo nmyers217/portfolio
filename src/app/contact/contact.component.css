@@ -1,8 +1,0 @@
-.help-block.with-errors {
-    color: red;
-    font-size: 10px;
-}
-
-#contact .form-control.ng-touched.ng-invalid {
-    border-bottom: 2px solid red;
-}
