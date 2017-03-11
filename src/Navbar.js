@@ -24,7 +24,7 @@ const Navbar = (props) => (
               <a href="#skills" data-id="skills" className="scroll-link">Skills</a>
             </li>
             <li>
-              <a href="#work" data-id="work" className="scroll-link">Work</a>
+              <a href="#work" data-id="work" className="scroll-link">Projects</a>
             </li>
             <li>
               <a href="#experience" data-id="experience" className="scroll-link">Experience</a>

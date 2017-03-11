@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 
-import Navbar from './Navbar';
-import Hero   from './Hero';
-import Skills from './Skills';
+import Navbar   from './Navbar';
+import Hero     from './Hero';
+import Skills   from './Skills';
+import Projects from './Projects';
 
-import { skillsData } from './data';
+import { skillsData, projectsData } from './data';
 
 class App extends Component {
     componentWillMount() {
-        this.setState({ skillsData });
+        this.setState({ skillsData, projectsData });
     }
 
     render() {
@@ -20,7 +21,11 @@ class App extends Component {
 
                 <Hero />
 
-                <Skills skills={ this.state.skillsData } />
+                <Skills skills={this.state.skillsData} />
+
+                <Projects
+                    categories={this.state.projectsData.categories}
+                    projects={this.state.projectsData.projects} />
             </div>
         );
     }

@@ -36,3 +36,69 @@ export const skillsData = [
         animation: 'rightReveal'
     }
 ];
+
+export const projectsData = {
+    categories: [
+        'HTML5',
+        'CSS3',
+        'JS',
+        'NodeJS',
+        'Python',
+        'Rails',
+        'Bootstrap',
+        'SQL',
+        'REST',
+        'Redux',
+        'React'
+    ],
+    projects: [
+        {
+            title: 'Cataloginator',
+            image: 'images/projects/cataloginator.png',
+            github: 'https://github.com/nickmyers217/catalog',
+            url: 'https://cataloginator.herokuapp.com/',
+            tags: ['html5', 'css3', 'js', 'python', 'bootstrap', 'sql', 'rest']
+        },
+        {
+            title: 'Pubmeddler',
+            image: 'images/projects/pubmeddler.png',
+            github: 'https://github.com/nickmyers217/pubmeddler',
+            url: 'https://pubmeddler.herokuapp.com/',
+            tags: ['html5', 'css3', 'js', 'rails', 'bootstrap', 'sql', 'rest']
+        },
+        {
+            title: 'RESTful Rock Paper Scissors',
+            image: 'images/projects/restful.png',
+            github: 'https://github.com/NickMyers217/AppEngine_RockPaperScissors',
+            tags: ['python', 'rest']
+        },
+        {
+            title: 'Raycaster',
+            image: 'images/projects/raycaster.png',
+            github: 'https://github.com/nickmyers217/raycaster',
+            url: 'http://nickmyers217.github.io/raycaster/',
+            tags: ['html5', 'js']
+        },
+        {
+            title: 'ES6 + WebGL',
+            image: 'images/projects/webgl.png',
+            github: 'https://github.com/nickmyers217/es6_threejs_stuff',
+            url: 'http://nickmyers217.github.io/es6_threejs_stuff/dist/',
+            tags: ['html5', 'js', 'nodejs']
+        },
+        {
+            title: 'Raytracer',
+            image: 'images/projects/raytracer.png',
+            github: 'https://github.com/nickmyers217/raytracer_practice',
+            url: 'http://nickmyers217.github.io/raytracer_practice/',
+            tags: ['html5', 'js']
+        },
+        {
+            title: 'Redux Minesweeper',
+            image: 'images/projects/minesweeper-redux.png',
+            github: 'https://github.com/nickmyers217/minesweeper-redux-react',
+            url: 'http://nickmyers217.github.io/minesweeper-redux-react',
+            tags: ['js', 'nodejs', 'react', 'redux']
+        }
+    ]
+}

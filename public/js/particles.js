@@ -608,7 +608,5 @@ Object.deepExtend = function(e, a) {
     }, i.send()
 };
 
-$('document').ready(function() {
-    particlesJS("particles-js");
-});
+particlesJS("particles-js");
 
