@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
 
+import { fromJS } from 'immutable';
+
 const Validation = ({ message }) => (
   <div className="help-block with-errors" style={{color: 'red', fontSize: '12px'}}>
     {message}
   </div>
 );
 
-const TextField = ({ cols=6, type='text', rows=5, name, isTouched, isRequired, isValid }) => (
+const TextField = ({ cols=6, type='text', rows=5, name, state, onChange }) => (
   <div className={'col-sm-' + cols}>
     <div className="form-group">
       <div className="controls">
         { type === 'text'
           ? <input id={name} className="form-control" type="text"
-              placeholder={isRequired ? name + ' *' : name}
-              style={isTouched && !isValid ? { borderBottom: '2px solid red' } : {}} />
-          : <textarea id={name} rows={rows} className="form-control" placeholder={isRequired ? name + ' *' : name}
-              style={isTouched && !isValid ? { borderBottom: '2px solid red' } : {}}></textarea>
+              placeholder={state.isRequired ? name + ' *' : name}
+              style={state.isTouched && !state.isValid ? { borderBottom: '2px solid red' } : {}}
+              onChange={onChange(name)} />
+          : <textarea id={name} rows={rows} className="form-control" placeholder={state.isRequired ? name + ' *' : name}
+              style={state.isTouched && !state.isValid ? { borderBottom: '2px solid red' } : {}}
+              onChange={onChange(name)}></textarea>
         }
-        { isTouched && isRequired && !isValid &&
-          <Validation message={`${name} is required.`} />
+        { state.isTouched && state.isRequired && !state.isValid &&
+          <Validation message={name + ' is required.'} />
         }
       </div>
     </div>
@@ -41,52 +45,85 @@ const Alert = ({ type, message, isVisible }) => (
 );
 
 class ContactForm extends Component {
-  // TODO: Set the default state of the form and bind event handlers
-  /*
-  constructor() {
-
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      fields: {
+        subject: { value: '', isTouched: false, isRequired: true, isValid: true },
+        name: { value: '', isTouched: false, isRequired: true, isValid: true },
+        email: { value: '', isTouched: false, isRequired: true, isValid: true },
+        phone: { value: '', isTouched: false, isRequired: false, isValid: true },
+        message: { value: '', isTouched: false, isRequired: true, isValid: true }
+      }
+    };
   }
-  */
 
-  // TODO: Write form submission code
-  /*
-  formSpreeSubmit() {
+  handleChange(fieldName) {
+    //TODO: make isTouched true during an onFocus event
+    return (e) => {
+      const val = e.target.value;
+
+      const updateField = (field) => {
+        const isTouched = field.get('isTouched') ? true : val !== '';
+        const isValid = (isTouched && val.trim() !== '') || !isTouched;
+
+        const newField = field.set('value', val)
+          .set('isTouched', isTouched)
+          .set('isValid', isValid);
+
+        return newField;
+      };
+
+      this.setState((prevState) => {
+        return fromJS(prevState)
+          .updateIn(['fields', fieldName.toLowerCase()], updateField)
+          .toJS();
+      });
+    };
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
     const url = 'https://formspree.io/nickbmyers217@gmail.com';
     const data = {
       message: `
-        Subject: ${formData.subject}
-        Name:    ${formData.name}
-        Email:   ${formData.email}
-        Phone:   ${formData.phone}
+        Subject: ${this.state.subject}
+        Name:    ${this.state.name}
+        Email:   ${this.state.email}
+        Phone:   ${this.state.phone}
 
-        ${formData.message}
+        ${this.state.message}
       `
     }
 
-    return this.http.post(url, data).map(res => res.json())
+    // TODO: Send the ajax request with fetch
+    // return this.http.post(url, data).map(res => res.json())
   }
-  */
 
   // TODO: Write form validation code
   render() {
+    const { fields } = this.state;
     return (
-      <form id="contactForm" name="contactForm">
+      <form id="contactForm" name="contactForm" onSubmit={this.handleSubmit}>
         <div className="row">
-          <TextField name="Subject" isTouched={false} isRequired={true} isValid={true} />
-          <TextField name="Phone" isTouched={false} isRequired={false} isValid={true} />
+          <TextField name="Subject" state={fields.subject} onChange={this.handleChange} />
+          <TextField name="Phone" state={fields.phone} onChange={this.handleChange} />
         </div>
         <div className="row mb10">
-          <TextField name="Name" isTouched={false} isRequired={true} isValid={true} />
-          <TextField name="Email" isTouched={false} isRequired={true} isValid={true} />
+          <TextField name="Name" state={fields.name} onChange={this.handleChange} />
+          <TextField name="Email" state={fields.email} onChange={this.handleChange} />
         </div>
         <div className="row">
-          <TextField type="textArea" cols={12} name="Message" isTouched={false} isRequired={true} isValid={true} />
+          <TextField type="textArea" cols={12} name="Message" state={fields.message} onChange={this.handleChange} />
         </div>
         <div className="row mt15">
           <div className="col-sm-6">
           </div>
           <div className="col-sm-6 text-right">
-            <SubmitButton text="Send" disabled={true} />
+            <SubmitButton text="Send" disabled={false} />
           </div>
           <div className="col-sm-12">
             <div id="msgSubmit" className="h4 mt10 no-margin-bottom">
