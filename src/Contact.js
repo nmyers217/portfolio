@@ -8,7 +8,7 @@ const Validation = ({ message }) => (
   </div>
 );
 
-const TextField = ({ cols=6, type='text', rows=5, name, state, onChange }) => (
+const TextField = ({ cols=6, type='text', rows=5, name, state, onChange, onFocus }) => (
   <div className={'col-sm-' + cols}>
     <div className="form-group">
       <div className="controls">
@@ -16,10 +16,10 @@ const TextField = ({ cols=6, type='text', rows=5, name, state, onChange }) => (
           ? <input id={name} className="form-control" type="text"
               placeholder={state.isRequired ? name + ' *' : name}
               style={state.isTouched && !state.isValid ? { borderBottom: '2px solid red' } : {}}
-              onChange={onChange(name)} />
+              onChange={onChange(name)} onFocus={onFocus(name)} />
           : <textarea id={name} rows={rows} className="form-control" placeholder={state.isRequired ? name + ' *' : name}
               style={state.isTouched && !state.isValid ? { borderBottom: '2px solid red' } : {}}
-              onChange={onChange(name)}></textarea>
+              onChange={onChange(name)} onFocus={onFocus(name)}></textarea>
         }
         { state.isTouched && state.isRequired && !state.isValid &&
           <Validation message={name + ' is required.'} />
@@ -47,6 +47,7 @@ const Alert = ({ type, message, isVisible }) => (
 class ContactForm extends Component {
   constructor(props) {
     super(props);
+    this.handleFocus = this.handleFocus.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
@@ -60,27 +61,43 @@ class ContactForm extends Component {
     };
   }
 
+  handleFocus(fieldName) {
+    return (e) => {
+      const updateField = (field) => {
+        const val = field.get('value');
+        const isTouched = true;
+        const isValid = field.get('isRequired') ? ((isTouched && val.trim() !== '') || !isTouched) : true;
+
+        return field.set('isTouched', isTouched)
+          .set('isValid', isValid);
+      };
+
+      this.setState((prevState) => (
+        fromJS(prevState)
+          .updateIn(['fields', fieldName.toLowerCase()], updateField)
+          .toJS()
+      ));
+    };
+  }
+
   handleChange(fieldName) {
-    //TODO: make isTouched true during an onFocus event
     return (e) => {
       const val = e.target.value;
 
       const updateField = (field) => {
         const isTouched = field.get('isTouched') ? true : val !== '';
-        const isValid = (isTouched && val.trim() !== '') || !isTouched;
+        const isValid = field.get('isRequired') && ((isTouched && val.trim() !== '') || !isTouched);
 
-        const newField = field.set('value', val)
+        return field.set('value', val)
           .set('isTouched', isTouched)
           .set('isValid', isValid);
-
-        return newField;
       };
 
-      this.setState((prevState) => {
-        return fromJS(prevState)
+      this.setState((prevState) => (
+        fromJS(prevState)
           .updateIn(['fields', fieldName.toLowerCase()], updateField)
-          .toJS();
-      });
+          .toJS()
+      ));
     };
   }
 
@@ -109,15 +126,15 @@ class ContactForm extends Component {
     return (
       <form id="contactForm" name="contactForm" onSubmit={this.handleSubmit}>
         <div className="row">
-          <TextField name="Subject" state={fields.subject} onChange={this.handleChange} />
-          <TextField name="Phone" state={fields.phone} onChange={this.handleChange} />
+          <TextField name="Subject" state={fields.subject} onChange={this.handleChange} onFocus={this.handleFocus} />
+          <TextField name="Phone" state={fields.phone} onChange={this.handleChange} onFocus={this.handleFocus} />
         </div>
         <div className="row mb10">
-          <TextField name="Name" state={fields.name} onChange={this.handleChange} />
-          <TextField name="Email" state={fields.email} onChange={this.handleChange} />
+          <TextField name="Name" state={fields.name} onChange={this.handleChange} onFocus={this.handleFocus} />
+          <TextField name="Email" state={fields.email} onChange={this.handleChange} onFocus={this.handleFocus} />
         </div>
         <div className="row">
-          <TextField type="textArea" cols={12} name="Message" state={fields.message} onChange={this.handleChange} />
+          <TextField type="textArea" cols={12} name="Message" state={fields.message} onChange={this.handleChange} onFocus={this.handleFocus} />
         </div>
         <div className="row mt15">
           <div className="col-sm-6">
