@@ -1,15 +1,17 @@
 import React from 'react';
 
-// TODO: Figure out why this is not displaying correctly!
-const Hero = () => (
+import Particles from 'react-particles-js';
+
+const Hero = ({ config }) => (
   <div className="jumbotron jumbotron-main" id="home">
     <div id="particles-js">
+      <Particles params={config} />
     </div>
     <div className="container center-vertically-holder">
       <div className="center-vertically">
         <div id="scaleReveal" className="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">
           <div className="big-logo scaleReveal">
-            <img src="images/Me.jpg" alt="Profile"/>
+            <img src="images/Me.jpg" alt="Profile" />
           </div>
           <h1 className="scaleReveal">Hi, I'm Nick</h1>
           <hr className="bottomReveal" />

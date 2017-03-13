@@ -8,27 +8,29 @@ import Timeline from './Timeline';
 import Contact  from './Contact';
 import Footer   from './Footer';
 
-import { skillsData, projectsData, experienceData } from './data';
+import { particlesConfig, skillsData, projectsData, experienceData } from './data';
 
 class App extends Component {
     componentWillMount() {
-        this.setState({ skillsData, projectsData, experienceData });
+        this.setState({ 
+            particlesConfig, skillsData, projectsData, experienceData
+        });
     }
 
+    // TODO: make the Hero Component taller somehow
     render() {
         return (
             <section>
                 <header>
-                    <Navbar brand="NM"/>
+                    <Navbar brand="NM" />
                 </header>
 
-                <Hero />
+                <Hero config={this.state.particlesConfig} />
 
                 <Skills skills={this.state.skillsData} />
 
-                <Projects
-                    categories={this.state.projectsData.categories}
-                    projects={this.state.projectsData.projects} />
+                <Projects categories={this.state.projectsData.categories}
+                          projects={this.state.projectsData.projects} />
 
                 <Timeline experiences={this.state.experienceData} />
 
