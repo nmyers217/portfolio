@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { fromJS } from 'immutable';
+import fetch      from 'node-fetch';
 
 const Validation = ({ message }) => (
   <div className="help-block with-errors" style={{color: 'red', fontSize: '12px'}}>
@@ -16,10 +17,10 @@ const TextField = ({ cols=6, type='text', rows=5, name, state, onChange, onFocus
           ? <input id={name} className="form-control" type="text"
               placeholder={state.isRequired ? name + ' *' : name}
               style={state.isTouched && !state.isValid ? { borderBottom: '2px solid red' } : {}}
-              onChange={onChange(name)} onFocus={onFocus(name)} />
+              value={state.value} onChange={onChange(name)} onFocus={onFocus(name)} />
           : <textarea id={name} rows={rows} className="form-control" placeholder={state.isRequired ? name + ' *' : name}
               style={state.isTouched && !state.isValid ? { borderBottom: '2px solid red' } : {}}
-              onChange={onChange(name)} onFocus={onFocus(name)}></textarea>
+              value={state.value} onChange={onChange(name)} onFocus={onFocus(name)}></textarea>
         }
         { state.isTouched && state.isRequired && !state.isValid &&
           <Validation message={name + ' is required.'} />
@@ -57,47 +58,60 @@ class ContactForm extends Component {
         email: { value: '', isTouched: false, isRequired: true, isValid: true },
         phone: { value: '', isTouched: false, isRequired: false, isValid: true },
         message: { value: '', isTouched: false, isRequired: true, isValid: true }
-      }
+      },
+      isValid: false,
+      submissionStatus: 'NOT_SUBMITTED'
     };
+  }
+
+
+  updateField(value) {
+    return (fieldMap) => {
+      const isTouched = true;
+      const isValid = fieldMap.get('isRequired')
+        ? ((isTouched && value.trim() !== '') || !isTouched)
+        : true;
+
+      return fieldMap.set('value', value)
+        .set('isTouched', isTouched)
+        .set('isValid', isValid);
+    }
   }
 
   handleFocus(fieldName) {
     return (e) => {
-      const updateField = (field) => {
-        const val = field.get('value');
-        const isTouched = true;
-        const isValid = field.get('isRequired') ? ((isTouched && val.trim() !== '') || !isTouched) : true;
+      this.setState((prevState) => {
+        const prevStateMap = fromJS(prevState);
+        const fieldKey = fieldName.toLowerCase();
+        const value = prevStateMap.getIn(['fields', fieldKey, 'value']);
 
-        return field.set('isTouched', isTouched)
-          .set('isValid', isValid);
-      };
-
-      this.setState((prevState) => (
-        fromJS(prevState)
-          .updateIn(['fields', fieldName.toLowerCase()], updateField)
+        return prevStateMap
+          .updateIn(['fields', fieldKey], this.updateField(value))
           .toJS()
-      ));
+      });
     };
   }
 
   handleChange(fieldName) {
     return (e) => {
-      const val = e.target.value;
+      const value = e.target.value;
 
-      const updateField = (field) => {
-        const isTouched = field.get('isTouched') ? true : val !== '';
-        const isValid = field.get('isRequired') && ((isTouched && val.trim() !== '') || !isTouched);
-
-        return field.set('value', val)
-          .set('isTouched', isTouched)
-          .set('isValid', isValid);
-      };
-
-      this.setState((prevState) => (
-        fromJS(prevState)
-          .updateIn(['fields', fieldName.toLowerCase()], updateField)
+      this.setState((prevState) => {
+        const prevStateMap = fromJS(prevState);
+        const fieldKey = fieldName.toLowerCase();
+        const updatedFields = prevStateMap.updateIn(['fields', fieldKey], this.updateField(value));
+        const updatedValid = updatedFields.get('fields')
+          .filter(field => field.get('isRequired'))
+          .map(field => field.get('isTouched') && field.get('isValid'))
+          .toList()
+          .filter(valid => !valid)
           .toJS()
-      ));
+          .length === 0;
+
+        return updatedFields
+          .set('isValid', updatedValid)
+          .toJS()
+      });
     };
   }
 
@@ -105,24 +119,34 @@ class ContactForm extends Component {
     e.preventDefault();
 
     const url = 'https://formspree.io/nickbmyers217@gmail.com';
+    const { subject, name, email, phone, message } = this.state.fields;
     const data = {
       message: `
-        Subject: ${this.state.subject}
-        Name:    ${this.state.name}
-        Email:   ${this.state.email}
-        Phone:   ${this.state.phone}
+        Subject: ${subject.value}
+        Name:    ${name.value}
+        Email:   ${email.value}
+        Phone:   ${phone.value}
 
-        ${this.state.message}
+        ${message.value}
       `
     }
 
-    // TODO: Send the ajax request with fetch
-    // return this.http.post(url, data).map(res => res.json())
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then(res => res.json())
+      .then(json => {
+        console.log(json);
+        this.setState((prevState) => fromJS(prevState)
+          .set('submissionStatus', json.success ? 'SUCCESS' : 'ERROR')
+          .toJS())
+      });
   }
 
-  // TODO: Write form validation code
   render() {
-    const { fields } = this.state;
+    const { fields, isValid, submissionStatus } = this.state;
     return (
       <form id="contactForm" name="contactForm" onSubmit={this.handleSubmit}>
         <div className="row">
@@ -140,12 +164,14 @@ class ContactForm extends Component {
           <div className="col-sm-6">
           </div>
           <div className="col-sm-6 text-right">
-            <SubmitButton text="Send" disabled={false} />
+            { submissionStatus !== 'SUCCESS' &&
+              <SubmitButton text="Send" disabled={!isValid} />
+            }
           </div>
           <div className="col-sm-12">
             <div id="msgSubmit" className="h4 mt10 no-margin-bottom">
-              <Alert type="alert-success" message="I got your message!" isVisible={false} />
-              <Alert type="alert-danger" message="There was a problem. Please try again." isVisible={false} />
+              <Alert type="alert-success" message="I got your message!" isVisible={submissionStatus === 'SUCCESS'} />
+              <Alert type="alert-danger" message="There was a problem. Please try again." isVisible={submissionStatus === 'ERROR'} />
             </div>
           </div>
         </div>

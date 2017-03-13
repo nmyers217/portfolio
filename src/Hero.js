@@ -2,7 +2,8 @@ import React from 'react';
 
 const Hero = () => (
   <div className="jumbotron jumbotron-main" id="home">
-    <div id="particles-js"></div>
+    <div id="particles-js">
+    </div>
     <div className="container center-vertically-holder">
       <div className="center-vertically">
         <div id="scaleReveal" className="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">
