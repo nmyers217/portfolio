@@ -1,5 +1,6 @@
 import React from 'react';
 
+// TODO: Figure out why this is not displaying correctly!
 const Hero = () => (
   <div className="jumbotron jumbotron-main" id="home">
     <div id="particles-js">

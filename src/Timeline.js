@@ -35,7 +35,6 @@ const Timeline = ({ experiences }) => (
       </div>
     </div>
   </section>
-
 );
 
 export default Timeline;
