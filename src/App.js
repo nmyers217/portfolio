@@ -17,7 +17,6 @@ class App extends Component {
         });
     }
 
-    // TODO: make the Hero Component taller somehow
     render() {
         return (
             <section>

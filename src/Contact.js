@@ -64,7 +64,6 @@ class ContactForm extends Component {
     };
   }
 
-
   updateField(value) {
     return (fieldMap) => {
       const isTouched = true;
