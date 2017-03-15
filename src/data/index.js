@@ -264,5 +264,5 @@ export const footerData = {
       icon: 'ion-social-github'
     }
   ],
-  resumePath: '/resume.pdf'
+  resumePath: 'resume.pdf'
 };
