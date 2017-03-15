@@ -4,7 +4,7 @@ import ReactDom from 'react-dom';
 import App from './App';
 
 const scriptsToMount = [
-  '/js/main.js'
+  '/js/animations.js'
 ]
 
 const mountOldScripts = (scriptsToMount) => {
