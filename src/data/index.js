@@ -123,15 +123,15 @@ export const skillsData = [
     animation: 'topReveal'
   },
   {
-    icons: ['ion-briefcase'],
+    icons: ['ion-briefcase', 'glyphicons glyphicons-database'],
     title: 'Databases',
-    desc: 'I have worked with SQL datbases and am formally educated in relational database theory, but I\'m not afraid of NoSQL solutions either.',
+    desc: 'I have worked with SQL datbases and am formally educated in relational database theory, but I\'ve also spent some time with NoSQL solutions like CouchDB.',
     animation: 'rightReveal'
   },
   {
     icons: ['ion-social-angular'],
     title: 'Frameworks',
-    desc: 'I have experience with a variety of popular frameworks like Angular 2, Bootstrap, and JQuery.',
+    desc: 'I have experience with a variety of popular frameworks like React, Angular 2, Bootstrap, and JQuery.',
     animation: 'leftReveal'
   },
   {
@@ -240,8 +240,7 @@ export const experienceData = [
     body: 'In July of 2016 I relocated back to Houston and graduated from Udacity\'s Full Stack Web Developer Nanodegree program. I spent 4 months in the program pushing my Web Development skills to the next level with content and coaching that was built in collaboration with industry leaders like AT&T and Google.'
   },
   {
-    // TODO: Get a good image for this
-    image: '',
+    image: 'images/experience/alitek.png',
     heading: 'Feb 2017 - Present',
     subheading: 'Alitek',
     body: 'In February of 2017 I began working as a consultant at Alitek in Houston, TX. I currently act as a web developer for an Alitek partner company that implements software for oil & gas clients. I spend a lot of time working with full stack Javascript code!'
@@ -253,3 +252,17 @@ export const experienceData = [
     body: 'In the future I intend to take my skillset even further and master the web\'s newest technologies. I have my eyes set on progressive and hybrid web apps. Maybe we can build something amazing together.'
   }
 ];
+
+export const footerData = {
+  socialIcons: [
+    {
+      url: 'https://www.linkedin.com/in/nicholasmyers217',
+      icon: 'ion-social-linkedin'
+    },
+    {
+      url: 'https://github.com/nickmyers217',
+      icon: 'ion-social-github'
+    }
+  ],
+  resumePath: '/resume.pdf'
+};

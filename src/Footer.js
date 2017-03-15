@@ -1,20 +1,23 @@
 import React from 'react';
 
-// TODO: Update my resume
-// TODO: Fix the padding of the social icons
-const Footer = () => (
+const SocialIcon = ({ url, icon }, i) => (
+  <a key={i} href={url} target="_blank" style={{paddingRight: 8}}>
+    <span className={icon + ' social-icons-dark-hover'}></span>
+  </a>
+);
+
+const Footer = ({ resumePath, socialIcons }) => (
   <footer className="background2 footer-padding">
     <div className="container">
       <div className="row">
         <div className="col-sm-8 col-sm-offset-2 text-center">
           <span className="icon-handle-streamline-vector logo"></span>
           <h2 className="theme-title">
-            <a href="resume.pdf" target="_blank" className="theme-title-smaller">
+            <a href={resumePath} target="_blank" className="theme-title-smaller">
               My Resume
           </a>
           </h2>
-          <a href="https://www.linkedin.com/in/nicholasmyers217" target="_blank"><span className="ion-social-linkedin social-icons-dark-hover"></span></a>
-          <a href="https://github.com/nickmyers217" target="_blank"><span className="ion-social-github social-icons-dark-hover"></span></a>
+          { socialIcons.map(SocialIcon) }
         </div>
       </div>
       <div className="row">

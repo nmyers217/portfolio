@@ -1,8 +1,7 @@
 import React from 'react';
 
-// TODO: Fix padding around icons
 const Icon = (icon, i) => (
-  <span key={i.toString()} className={icon + ' services-icon'}></span>
+  <span key={i.toString()} className={icon + ' services-icon'} style={{paddingRight: 8}}></span>
 );
 
 const Skill = ({ icons, title, desc, animation }, i) => (
