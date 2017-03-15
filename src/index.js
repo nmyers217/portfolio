@@ -4,7 +4,7 @@ import ReactDom from 'react-dom';
 import App from './App';
 
 const scriptsToMount = [
-  '/js/animations.js'
+  process.env.PUBLIC_URL + '/js/animations.js'
 ]
 
 const mountOldScripts = (scriptsToMount) => {
