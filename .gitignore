@@ -31,3 +31,10 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
+<<<<<<< HEAD
+=======
+
+# logs
+*.log
+*.log.*
+>>>>>>> master
