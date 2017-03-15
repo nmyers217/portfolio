@@ -1,7 +1,7 @@
 export const particlesConfig = {
   "particles": {
     "number": {
-      "value": 80,
+      "value": 40,
       "density": {
         "enable": true,
         "value_area": 800
@@ -20,7 +20,7 @@ export const particlesConfig = {
         "nb_sides": 5
       },
       "image": {
-        "src": "img/github.svg",
+        "src": "",
         "width": 100,
         "height": 100
       }
@@ -56,7 +56,7 @@ export const particlesConfig = {
       "enable": true,
       "speed": 2,
       "direction": "none",
-      "random": true,
+      "random": false,
       "straight": false,
       "out_mode": "out",
       "bounce": false,
@@ -90,7 +90,7 @@ export const particlesConfig = {
       "bubble": {
         "distance": 400,
         "size": 40,
-        "duration": 2,
+        "duration": 0.4,
         "opacity": 8,
         "speed": 3
       },
@@ -106,7 +106,7 @@ export const particlesConfig = {
       }
     }
   },
-  "retina_detect": true
+  "retina_detect": false
 };
 
 export const skillsData = [
