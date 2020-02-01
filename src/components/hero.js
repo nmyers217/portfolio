@@ -74,12 +74,20 @@ class Hero extends Component {
               <div className="big-logo scaleReveal">
                 <Image />
               </div>
-              <h1 className="scaleReveal">Hi, I'm Nick 👋</h1>
+              <h1 className="scaleReveal">
+                Hi, I'm Nick{' '}
+                <span role="img" aria-label="hand wave emoji">
+                  👋
+                </span>
+              </h1>
               <hr className="bottomReveal" />
               <p className="bottomReveal">
                 I'm a Full Stack Web Developer in the Houston, TX area with 4+
-                years of industry experience. I have am always curious and
-                driven to explore programming and technology 🤖
+                years of industry experience. I am always curious, and driven to
+                explore programming and technology{' '}
+                <span role="img" aria-label="robot emoji">
+                  🤖
+                </span>
               </p>
               <a href="#skills" data-id="skills" className="scroll-link">
                 <div className="scroll-indicator rotateBottomReveal">
