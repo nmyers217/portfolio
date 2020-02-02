@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import PropTypes from 'prop-types';
 import Particles from 'react-particles-js';
 import $ from 'jquery';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 const Image = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "Me.jpg" }) {
+      placeholderImage: file(relativePath: { eq: "me.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
@@ -26,10 +27,7 @@ class Hero extends Component {
   constructor(props) {
     super(props);
     this.updateDimensions = this.updateDimensions.bind(this);
-    this.state = {
-      width: 400,
-      height: 400
-    };
+    this.state = { width: 400, height: 400 };
   }
 
   updateDimensions() {
@@ -37,10 +35,6 @@ class Hero extends Component {
       width: $(window).width(),
       height: $(window).height()
     });
-  }
-
-  componentWillMount() {
-    this.updateDimensions();
   }
 
   componentDidMount() {
@@ -59,11 +53,10 @@ class Hero extends Component {
       <div
         className="jumbotron jumbotron-main"
         id="home"
-        ref={jumbo => (this.jumbo = jumbo)}
-        style={{ width, height }}
+        style={{ width: width - 1, height }}
       >
         <div id="particles-js">
-          <Particles params={this.props.config} wdith={width} height={height} />
+          <Particles params={this.props.particlesConfig} />
         </div>
         <div className="container center-vertically-holder">
           <div className="center-vertically">
@@ -103,5 +96,13 @@ class Hero extends Component {
     );
   }
 }
+
+Hero.propTypes = {
+  particlesConfig: PropTypes.object
+};
+
+Hero.defaultProps = {
+  particlesConfig: []
+};
 
 export default Hero;
