@@ -5,22 +5,27 @@ import $ from 'jquery';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-const Image = () => {
+const Image = ({ name }) => {
   const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "me.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
+    query HeroQuery {
+      allFile(filter: { relativeDirectory: { eq: "hero" } }) {
+        edges {
+          node {
+            name
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }
     }
   `);
+  const files = data.allFile.edges.map(e => e.node);
+  const image = files.find(f => f.name === name);
 
-  return (
-    <Img fluid={data.placeholderImage.childImageSharp.fluid} alt="Profile" />
-  );
+  return <Img fluid={image.childImageSharp.fluid} alt="Profile" />;
 };
 
 class Hero extends Component {
@@ -47,6 +52,7 @@ class Hero extends Component {
   }
 
   render() {
+    const { content, particlesConfig } = this.props;
     const { width, height } = this.state;
 
     return (
@@ -56,7 +62,7 @@ class Hero extends Component {
         style={{ width: width - 1, height }}
       >
         <div id="particles-js">
-          <Particles params={this.props.particlesConfig} />
+          <Particles params={particlesConfig} />
         </div>
         <div className="container center-vertically-holder">
           <div className="center-vertically">
@@ -65,21 +71,19 @@ class Hero extends Component {
               className="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center"
             >
               <div className="big-logo scaleReveal">
-                <Image />
+                <Image name={content.image} />
               </div>
               <h1 className="scaleReveal">
-                Hi, I'm Nick{' '}
-                <span role="img" aria-label="hand wave emoji">
-                  👋
+                {content.title}{' '}
+                <span role="img" aria-label={content.titleEmojiLabel}>
+                  {content.titleEmoji}
                 </span>
               </h1>
               <hr className="bottomReveal" />
               <p className="bottomReveal">
-                I'm a Full Stack Web Developer in the Houston, TX area with 4+
-                years of industry experience. I am always curious, and driven to
-                explore programming and technology{' '}
-                <span role="img" aria-label="robot emoji">
-                  🤖
+                {content.body}{' '}
+                <span role="img" aria-label={content.bodyEmojiLabel}>
+                  {content.bodyEmoji}
                 </span>
               </p>
               <a href="#skills" data-id="skills" className="scroll-link">
@@ -98,10 +102,12 @@ class Hero extends Component {
 }
 
 Hero.propTypes = {
+  content: PropTypes.object,
   particlesConfig: PropTypes.object
 };
 
 Hero.defaultProps = {
+  content: {},
   particlesConfig: []
 };
 
