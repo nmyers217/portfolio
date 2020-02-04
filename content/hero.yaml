@@ -2,6 +2,5 @@ image: me
 title: Hi, I'm Nick
 titleEmoji: 👋
 titleEmojiLabel: Hand Wave Emoji
-body: I'm a Full Stack Web Developer in the Houston, TX area with 4+ years of industry experience. I am always curious, and driven to explore programming and technology
-bodyEmoji: 🤖
-bodyEmojiLabel: Robot Emoji
+bioEmoji: 🤖
+bioEmojiLabel: Robot Emoji

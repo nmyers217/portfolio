@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { fromJS } from 'immutable';
 import fetch from 'node-fetch';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const Validation = ({ message }) => (
   <div
@@ -282,35 +283,49 @@ class ContactForm extends Component {
   }
 }
 
-const Contact = ({ content }) => (
-  <section
-    id="contact"
-    className="background1 section-padding"
-    onChange={contact => console.log(contact)}
-  >
-    <div className="container">
-      <div className="row mb30">
-        <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 section-title text-center">
-          <h2>Contact</h2>
-          <span className="section-divider mb15"></span>
-          <p className="no-margin scaleReveal">{content.message}</p>
+const Contact = ({ content }) => {
+  const data = useStaticQuery(graphql`
+    query ContactQuery {
+      github {
+        viewer {
+          email
+        }
+      }
+    }
+  `);
+
+  return (
+    <section
+      id="contact"
+      className="background1 section-padding"
+      onChange={contact => console.log(contact)}
+    >
+      <div className="container">
+        <div className="row mb30">
+          <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 section-title text-center">
+            <h2>Contact</h2>
+            <span className="section-divider mb15"></span>
+            <p className="no-margin scaleReveal">{content.message}</p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-5 col-lg-4">
+            <h5 className="heading-1 mb20">Details:</h5>
+            <p className="text-xs-small mb5">
+              <strong className="text-switch">Email:</strong>{' '}
+              <a href={`mailto:${data.github.viewer.email}`}>
+                {data.github.viewer.email}
+              </a>
+            </p>
+          </div>
+          <div className="col-sm-6 col-lg-7 mt30-xs">
+            <ContactForm content={content} />
+          </div>
         </div>
       </div>
-      <div className="row">
-        <div className="col-sm-5 col-lg-4">
-          <h5 className="heading-1 mb20">Details:</h5>
-          <p className="text-xs-small mb5">
-            <strong className="text-switch">Email:</strong>{' '}
-            <a href={`mailto:${content.myEmail}`}>{content.myEmail}</a>
-          </p>
-        </div>
-        <div className="col-sm-6 col-lg-7 mt30-xs">
-          <ContactForm content={content} />
-        </div>
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 Contact.propTypes = {
   content: PropTypes.object
