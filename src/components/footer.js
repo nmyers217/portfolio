@@ -6,7 +6,7 @@ const SocialIcon = ({ url, icon }, i) => (
     href={url}
     target="_blank"
     rel="noopener noreferrer"
-    style={{ paddingRight: 8 }}
+    style={{ paddingRight: 8, fontSize: '3rem' }}
   >
     <span className={icon + ' social-icons-dark-hover'}></span>
   </a>

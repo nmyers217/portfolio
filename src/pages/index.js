@@ -5,6 +5,7 @@ import SEO from '../components/seo';
 import Hero from '../components/hero';
 import Skills from '../components/skills';
 import Timeline from '../components/timeline';
+import Projects from '../components/projects';
 import Contact from '../components/contact';
 
 import hero from '../../content/hero.yaml';
@@ -19,6 +20,7 @@ const IndexPage = () => (
     <Hero content={hero} particlesConfig={particlesConfig} />
     <Skills skills={skills} />
     <Timeline experiences={experiences} />
+    <Projects />
     <Contact content={contact} />
   </Layout>
 );

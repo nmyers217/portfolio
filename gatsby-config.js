@@ -1,3 +1,12 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+});
+
+if (!process.env.GITHUB_TOKEN) {
+  console.error('Make sure you provide a GITHUB_TOKEN env variable!');
+  throw new Error('Make sure you provide a GITHUB_TOKEN env variable!');
+}
+
 module.exports = {
   siteMetadata: {
     title: `Nicholas Myers`,
@@ -18,13 +27,25 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Nicholas Myers`,
+        short_name: `Nicholas Myers`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
+      }
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GitHub',
+        fieldName: 'github',
+        url: 'https://api.github.com/graphql',
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
+        },
+        fetchOptions: {}
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
