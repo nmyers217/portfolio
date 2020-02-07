@@ -1,6 +1,7 @@
 # My Portfolio
 
-This is my personal website and portfolio that I built primarily using React.
+This is my personal website and portfolio that I built primarily using Gatsby 2 and React.
+It is a static site that automatically generates itself from JSON and YAML files that I can easily maintain; as well as data automtically queried from my Github profile using the Github graphql API.
 
 I have now ported the site over to Gatsby 2, and I've left the normal Gatsby documentation below for reference.
 
