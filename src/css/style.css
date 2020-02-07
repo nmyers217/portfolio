@@ -1187,9 +1187,9 @@ ul.social-buttons li a:active {
   margin-right: 15px;
 }
 
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:focus,
-.navbar-default .navbar-nav > .active > a:hover {
+.navbar-default .navbar-nav a.active,
+.navbar-default .navbar-nav a.active:focus,
+.navbar-default .navbar-nav a.active:hover {
   color: #8980fe;
   background-color: transparent;
 }

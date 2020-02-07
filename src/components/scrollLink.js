@@ -9,7 +9,7 @@ const ScrollLink = ({ brand = false, to, children }) => (
     to={to}
     spy={true}
     smooth={true}
-    offset={-69}
+    offset={-70}
     duration={750}
   >
     {children}
