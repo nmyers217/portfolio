@@ -2,26 +2,22 @@
   {
     "icons": ["ion-social-html5", "ion-social-css3", "ion-social-javascript"],
     "title": "Front End",
-    "desc": "I can write HTML5 and CSS3 by hand and am up to date on many of the key developments in today's modern Javascript ecosystem.",
-    "animation": "left"
+    "desc": "I can write HTML5 and CSS3 by hand and am up to date on many of the key developments in today's modern Javascript ecosystem."
   },
   {
     "icons": ["ion-social-nodejs", "ion-social-windows", "ion-social-python"],
     "title": "Back End",
-    "desc": "I've built websites and API's backed by Ruby on Rails, ASP.NET MVC, Python's Flask framework, and several Node.js frameworks.",
-    "animation": "top"
+    "desc": "I've built websites and API's backed by Ruby on Rails, ASP.NET MVC, Python's Flask framework, and several Node.js frameworks."
   },
   {
     "icons": ["ion-briefcase", "glyphicons glyphicons-database"],
     "title": "Databases",
-    "desc": "I have worked with SQL datbases and am formally educated in relational database theory, but I've also spent some time with NoSQL solutions like CouchDB.",
-    "animation": "right"
+    "desc": "I have worked with SQL datbases and am formally educated in relational database theory, but I've also spent some time with NoSQL solutions like CouchDB."
   },
   {
     "icons": ["ion-social-angular"],
     "title": "Frameworks",
-    "desc": "I have experience with a variety of popular frameworks like React, Angular 2, Bootstrap, and JQuery.",
-    "animation": "left"
+    "desc": "I have experience with a variety of popular frameworks like React, Angular 2, Bootstrap, and JQuery."
   },
   {
     "icons": [
@@ -30,8 +26,7 @@
       "ion-android-phone-portrait"
     ],
     "title": "Techniques",
-    "desc": "I'm well versed in Responsive Web Design, and understand how to achieve a pleasant mobile web experience.",
-    "animation": "top"
+    "desc": "I'm well versed in Responsive Web Design, and understand how to achieve a pleasant mobile web experience."
   },
   {
     "icons": [
@@ -40,7 +35,6 @@
       "glyphicon glyphicon-console"
     ],
     "title": "Other",
-    "desc": "I'm not one to shy away from working on the terminal, and can configure a Linux server or work with Git.",
-    "animation": "right"
+    "desc": "I'm not one to shy away from working on the terminal, and can configure a Linux server or work with Git."
   }
 ]

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Fade from 'react-reveal/Fade';
 
 const Icon = (icon, i) => (
   <span
@@ -9,9 +10,9 @@ const Icon = (icon, i) => (
   ></span>
 );
 
-const Skill = ({ icons, title, desc, animation }, i) => (
+const Skill = ({ icons, title, desc }, i) => (
   <div key={i.toString()} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 mt30">
-    <div className={'services-box ' + animation}>
+    <div className="services-box">
       <span>{icons.map(Icon)}</span>
       <h3 className="service-name">{title}</h3>
       <p className="text-small">{desc}</p>
