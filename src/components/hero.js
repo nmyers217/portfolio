@@ -5,6 +5,7 @@ import $ from 'jquery';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Bounce from 'react-reveal/Bounce';
+import ScrollLink from './scrollLink';
 
 const Bio = ({ content }) => {
   const data = useStaticQuery(graphql`
@@ -98,7 +99,7 @@ class Hero extends Component {
           <div className="center-vertically">
             <div className="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">
               <Bio content={content} />
-              <a href="#skills" data-id="skills" className="scroll-link">
+              <ScrollLink to="skills">
                 <Bounce bottom>
                   <div className="scroll-indicator">
                     <span className="ion-mouse"></span>
@@ -106,7 +107,7 @@ class Hero extends Component {
                     <span className="ion-android-arrow-down arrow-scroll-indicator"></span>
                   </div>
                 </Bounce>
-              </a>
+              </ScrollLink>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import ScrollLink from './scrollLink';
 
 const Header = ({ siteTitle }) => (
   <header>
@@ -19,9 +20,9 @@ const Header = ({ siteTitle }) => (
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand scroll-link" href="#home" data-id="home">
+            <ScrollLink brand={true} to="home">
               <span className="logo">{siteTitle}</span>
-            </a>
+            </ScrollLink>
           </div>
           <div
             className="collapse navbar-collapse"
@@ -29,33 +30,19 @@ const Header = ({ siteTitle }) => (
           >
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <a href="#home" data-id="home" className="scroll-link">
-                  Home
-                </a>
+                <ScrollLink to="home">Home</ScrollLink>
               </li>
               <li>
-                <a href="#skills" data-id="skills" className="scroll-link">
-                  Skills
-                </a>
+                <ScrollLink to="skills">Skills</ScrollLink>
               </li>
               <li>
-                <a
-                  href="#experience"
-                  data-id="experience"
-                  className="scroll-link"
-                >
-                  Experience
-                </a>
+                <ScrollLink to="experience">Experience</ScrollLink>
               </li>
               <li>
-                <a href="#work" data-id="work" className="scroll-link">
-                  Projects
-                </a>
+                <ScrollLink to="work">Projects</ScrollLink>
               </li>
               <li>
-                <a href="#contact" data-id="contact" className="scroll-link">
-                  Contact
-                </a>
+                <ScrollLink to="contact">Contact</ScrollLink>
               </li>
             </ul>
           </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import ScrollLink from './scrollLink';
 
 const SocialIcon = ({ url, icon }, i) => (
   <a
@@ -24,12 +25,14 @@ const Footer = ({ config }) => (
       <div className="row">
         <div className="col-sm-8 col-sm-offset-2 text-small text-center">
           <hr />
-          <button
-            type="button"
-            className="btn btn-primary btn-up-footer btn-lg scroll-top"
-          >
-            Up
-          </button>
+          <ScrollLink to="home">
+            <button
+              type="button"
+              className="btn btn-primary btn-up-footer btn-lg"
+            >
+              Up
+            </button>
+          </ScrollLink>
           <p className="no-margin">
             © {new Date().getFullYear()} Nicholas Myers, Built with
             {` `}
