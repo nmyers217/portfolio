@@ -5,6 +5,7 @@
   "version": "3.0",
   "author": "Nicholas Myers",
   "dependencies": {
+    "bootstrap": "3.3.6",
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-manifest": "^2.2.39",

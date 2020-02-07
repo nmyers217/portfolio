@@ -10,7 +10,8 @@ import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
 // Import styles
-import '../css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../css/fonts.css';
 import '../css/style.css';
 import '../css/base-light.css';
 
