@@ -107,9 +107,9 @@ const Projects = () => {
         <div className="row">
           <div className="col-xs-12 section-title text-center">
             <h2>Projects</h2>
-            <span className="section-divider mb15"></span>
+            <span className="section-divider"></span>
             <Fade top>
-              <p className="mb30">
+              <p>
                 Here are some of the cool{' '}
                 <a href={url} target="_blank" rel="noopener noreferrer">
                   github
