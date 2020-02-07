@@ -5,6 +5,8 @@ import $ from 'jquery';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Bounce from 'react-reveal/Bounce';
+import { MdMouse, MdArrowDownward } from 'react-icons/md';
+
 import ScrollLink from './scrollLink';
 
 const Bio = ({ content }) => {
@@ -102,9 +104,9 @@ class Hero extends Component {
               <ScrollLink to="skills">
                 <Bounce bottom>
                   <div className="scroll-indicator">
-                    <span className="ion-mouse"></span>
+                    <MdMouse />
                     <br />
-                    <span className="ion-android-arrow-down arrow-scroll-indicator"></span>
+                    <MdArrowDownward />
                   </div>
                 </Bounce>
               </ScrollLink>
