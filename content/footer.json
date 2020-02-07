@@ -2,11 +2,11 @@
   "socialIcons": [
     {
       "url": "https://github.com/nmyers217",
-      "icon": "ion-social-github"
+      "type": "github"
     },
     {
       "url": "https://www.linkedin.com/in/nicholasmyers217",
-      "icon": "ion-social-linkedin"
+      "type": "linkedin"
     }
   ]
 }

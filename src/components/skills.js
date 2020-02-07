@@ -1,14 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Fade from 'react-reveal';
+import * as IO from 'react-icons/io';
+import * as FA from 'react-icons/fa';
+import * as DI from 'react-icons/di';
 
-const Icon = (icon, i) => (
-  <span
-    key={i.toString()}
-    className={icon + ' services-icon'}
-    style={{ paddingRight: 8 }}
-  ></span>
-);
+const Icon = icon => {
+  const iconGroups = [IO, FA, DI];
+  if (iconGroups.every(group => !group.hasOwnProperty(icon))) {
+    return <span>icon not found</span>;
+  }
+
+  const IconComp = IO[icon] || FA[icon] || DI[icon];
+  return (
+    <IconComp
+      key={icon}
+      size="5rem"
+      className="services-icon"
+      style={{ paddingRight: 8 }}
+    />
+  );
+};
 
 const Skill = ({ icons, title, desc }, i) => (
   <div key={i.toString()} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 mt30">

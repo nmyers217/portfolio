@@ -1,40 +1,32 @@
 [
   {
-    "icons": ["ion-social-html5", "ion-social-css3", "ion-social-javascript"],
+    "icons": ["IoLogoHtml5", "IoLogoCss3", "IoLogoJavascript"],
     "title": "Front End",
-    "desc": "I can write HTML5 and CSS3 by hand and am up to date on many of the key developments in today's modern Javascript ecosystem."
+    "desc": "I can write HTML5 and CSS3 by hand and am up to date on many of the key developments in today's modern Javascript/ECMAScript ecosystem."
   },
   {
-    "icons": ["ion-social-nodejs", "ion-social-windows", "ion-social-python"],
+    "icons": ["IoLogoNodejs", "IoLogoPython", "IoLogoTux", "FaAws"],
     "title": "Back End",
-    "desc": "I've built websites and API's backed by Ruby on Rails, ASP.NET MVC, Python's Flask framework, and several Node.js frameworks."
+    "desc": "I've built API's and microservices with Nodejs, Python, and Ruby. I also have the DevOps know how to deploy back-end systems to linux environments, or cloud microservices like AWS lambda."
   },
   {
-    "icons": ["ion-briefcase", "glyphicons glyphicons-database"],
+    "icons": ["DiPostgresql", "DiMongodb", "FaCouch", "DiRedis"],
     "title": "Databases",
-    "desc": "I have worked with SQL datbases and am formally educated in relational database theory, but I've also spent some time with NoSQL solutions like CouchDB."
+    "desc": "I've worked and interacted extensively with SQL databases, mostly Postgresql, but also have experience with NoSQL databases like MongoDB, CouchDB, and Redis."
   },
   {
-    "icons": ["ion-social-angular"],
-    "title": "Frameworks",
-    "desc": "I have experience with a variety of popular frameworks like React, Angular 2, Bootstrap, and JQuery."
+    "icons": ["FaReact", "FaVuejs"],
+    "title": "UI Frameworks",
+    "desc": "I have strong familiarity and confidence with React and it's ecosystem, but would be open to working with Vue as well."
   },
   {
-    "icons": [
-      "ion-android-desktop",
-      "ion-android-laptop",
-      "ion-android-phone-portrait"
-    ],
+    "icons": ["IoIosPhonePortrait", "IoIosLaptop", "IoIosDesktop"],
     "title": "Techniques",
-    "desc": "I'm well versed in Responsive Web Design, and understand how to achieve a pleasant mobile web experience."
+    "desc": "I'm well versed in Responsive Web Design, and understand how to achieve a pleasant mobile first web experience."
   },
   {
-    "icons": [
-      "ion-social-tux",
-      "ion-social-github",
-      "glyphicon glyphicon-console"
-    ],
-    "title": "Other",
-    "desc": "I'm not one to shy away from working on the terminal, and can configure a Linux server or work with Git."
+    "icons": ["IoLogoGithub", "IoLogoBitbucket", "FaJira", "FaTerminal"],
+    "title": "Tools",
+    "desc": "I enjoy working with Git, and have used it with both Github and Bitbucket. I've done plenty of work in JIRA and know how to use it to keep track of tasks. I also love my terminal, and my favorite editor is VIM!"
   }
 ]

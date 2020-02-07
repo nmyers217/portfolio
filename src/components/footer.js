@@ -1,17 +1,26 @@
 import React from 'react';
 import ScrollLink from './scrollLink';
+import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io';
 
-const SocialIcon = ({ url, icon }, i) => (
-  <a
-    key={i}
-    href={url}
-    target="_blank"
-    rel="noopener noreferrer"
-    style={{ paddingRight: 8, fontSize: '3rem' }}
-  >
-    <span className={icon + ' social-icons-dark-hover'}></span>
-  </a>
-);
+const SocialIcon = ({ url, type }) => {
+  let IconComp = <span key={url}>icon not found</span>;
+  if (type === 'github') {
+    IconComp = IoLogoGithub;
+  }
+  if (type === 'linkedin') {
+    IconComp = IoLogoLinkedin;
+  }
+
+  return (
+    <a key={url} href={url} target="_blank" rel="noopener noreferrer">
+      <IconComp
+        size="4rem"
+        className="social-icons-dark-hover"
+        style={{ paddingRight: 8 }}
+      />
+    </a>
+  );
+};
 
 const Footer = ({ config }) => (
   <footer className="background2 footer-padding">

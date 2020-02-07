@@ -11,7 +11,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 // Import styles
 import '../css/bootstrap.min.css';
-import '../css/ionicons.min.css';
 import '../css/style.css';
 import '../css/base-light.css';
 
