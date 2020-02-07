@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { fromJS } from 'immutable';
 import fetch from 'node-fetch';
 import { useStaticQuery, graphql } from 'gatsby';
+import Fade from 'react-reveal/Fade';
 
 const Validation = ({ message }) => (
   <div
@@ -305,7 +306,9 @@ const Contact = ({ content }) => {
           <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 section-title text-center">
             <h2>Contact</h2>
             <span className="section-divider mb15"></span>
-            <p className="no-margin scaleReveal">{content.message}</p>
+            <Fade top>
+              <p className="no-margin">{content.message}</p>
+            </Fade>
           </div>
         </div>
         <div className="row">

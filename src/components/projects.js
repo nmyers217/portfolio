@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import Fade from 'react-reveal/Fade';
 
 const BookSvg = () => (
   <svg
@@ -153,13 +154,15 @@ const Projects = () => {
           <div className="col-xs-12 section-title text-center">
             <h2>Projects</h2>
             <span className="section-divider mb15"></span>
-            <p className="mb30 scaleReveal">
-              Here are some of the cool{' '}
-              <a href={url} target="_blank" rel="noopener noreferrer">
-                github
-              </a>{' '}
-              projects I've built in my spare time!
-            </p>
+            <Fade top>
+              <p className="mb30">
+                Here are some of the cool{' '}
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                  github
+                </a>{' '}
+                projects I've built in my spare time!
+              </p>
+            </Fade>
           </div>
         </div>
         <div className="row">{repos.map(Project)}</div>

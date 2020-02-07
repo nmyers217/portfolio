@@ -2,21 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import Fade from 'react-reveal/Fade';
 
 const Experience = ({ image, imageData, heading, subheading, body }, i) => (
   <li key={i} className={i % 2 > 0 ? 'timeline-inverted' : ''}>
-    <div className="timeline-image scaleReveal">
-      <Img fluid={imageData.childImageSharp.fluid} alt={heading} />
-    </div>
-    <div className="timeline-panel leftReveal">
-      <div className="timeline-heading">
-        <h5 className="heading-1 mb15">{heading}</h5>
-        <h4 className="subheading">{subheading}</h4>
+    <Fade top>
+      <div className="timeline-image">
+        <Img fluid={imageData.childImageSharp.fluid} alt={heading} />
       </div>
-      <div className="timeline-body">
-        <p>{body}</p>
+    </Fade>
+    <Fade left>
+      <div className="timeline-panel">
+        <div className="timeline-heading">
+          <h5 className="heading-1 mb15">{heading}</h5>
+          <h4 className="subheading">{subheading}</h4>
+        </div>
+        <div className="timeline-body">
+          <p>{body}</p>
+        </div>
       </div>
-    </div>
+    </Fade>
   </li>
 );
 

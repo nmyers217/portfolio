@@ -4,6 +4,7 @@ import Particles from 'react-particles-js';
 import $ from 'jquery';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import Bounce from 'react-reveal/Bounce';
 
 const Bio = ({ content }) => {
   const data = useStaticQuery(graphql`
@@ -33,22 +34,26 @@ const Bio = ({ content }) => {
 
   return (
     <>
-      <div className="big-logo scaleReveal">
-        <Img fluid={image.childImageSharp.fluid} alt="Profile" />
-      </div>
-      <h1 className="scaleReveal">
-        {content.title}{' '}
-        <span role="img" aria-label={content.titleEmojiLabel}>
-          {content.titleEmoji}
-        </span>
-      </h1>
-      <hr className="bottomReveal" />
-      <p className="bottomReveal">
-        {data.github.viewer.bio}{' '}
-        <span role="img" aria-label={content.bioEmojiLabel}>
-          {content.bioEmoji}
-        </span>
-      </p>
+      <Bounce top>
+        <div className="big-logo">
+          <Img fluid={image.childImageSharp.fluid} alt="Profile" />
+        </div>
+        <h1>
+          {content.title}{' '}
+          <span role="img" aria-label={content.titleEmojiLabel}>
+            {content.titleEmoji}
+          </span>
+        </h1>
+      </Bounce>
+      <Bounce bottom>
+        <hr />
+        <p>
+          {data.github.viewer.bio}{' '}
+          <span role="img" aria-label={content.bioEmojiLabel}>
+            {content.bioEmoji}
+          </span>
+        </p>
+      </Bounce>
     </>
   );
 };
@@ -91,17 +96,16 @@ class Hero extends Component {
         </div>
         <div className="container center-vertically-holder">
           <div className="center-vertically">
-            <div
-              id="scaleReveal"
-              className="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center"
-            >
+            <div className="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">
               <Bio content={content} />
               <a href="#skills" data-id="skills" className="scroll-link">
-                <div className="scroll-indicator rotateBottomReveal">
-                  <span className="ion-mouse"></span>
-                  <br />
-                  <span className="ion-android-arrow-down arrow-scroll-indicator"></span>
-                </div>
+                <Bounce bottom>
+                  <div className="scroll-indicator">
+                    <span className="ion-mouse"></span>
+                    <br />
+                    <span className="ion-android-arrow-down arrow-scroll-indicator"></span>
+                  </div>
+                </Bounce>
               </a>
             </div>
           </div>
