@@ -1,33 +1,22 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Navbar, Nav, Row } from 'react-bootstrap';
 import ScrollLink from './scrollLink';
 
 const Header = ({ siteTitle }) => (
   <header>
-    <nav className="navbar navbar-default navbar-fixed-top">
-      <div className="container-fluid">
-        <div className="row">
-          <div className="navbar-header">
-            <button
-              type="button"
-              className="navbar-toggle collapsed"
-              data-toggle="collapse"
-              data-target="#bs-example-navbar-collapse-1"
-              aria-expanded="false"
-            >
-              <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-            </button>
+    <Navbar fluid fixedTop className="">
+      <Row>
+        <Navbar.Header>
+          <Navbar.Brand>
             <ScrollLink brand={true} to="home">
               <span className="logo">{siteTitle}</span>
             </ScrollLink>
-          </div>
-          <div
-            className="collapse navbar-collapse"
-            id="bs-example-navbar-collapse-1"
-          >
+          </Navbar.Brand>
+          <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+          <Nav pullRight>
             <ul className="nav navbar-nav navbar-right">
               <li>
                 <ScrollLink to="home">Home</ScrollLink>
@@ -45,10 +34,10 @@ const Header = ({ siteTitle }) => (
                 <ScrollLink to="contact">Contact</ScrollLink>
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
+          </Nav>
+        </Navbar.Collapse>
+      </Row>
+    </Navbar>
   </header>
 );
 
