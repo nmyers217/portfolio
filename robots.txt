@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+Sitemap: https://nmyers217.github.io/sitemap.xml
+Host: https://nmyers217.github.io
