@@ -8,6 +8,7 @@ if (!process.env.GITHUB_TOKEN) {
 }
 
 module.exports = {
+  pathPrefix: '/portfolio',
   siteMetadata: {
     title: `Nicholas Myers`,
     description: `Nicholas Myers Web Developer Portfolio`,
