@@ -11,7 +11,8 @@ module.exports = {
   siteMetadata: {
     title: `Nicholas Myers`,
     description: `Nicholas Myers Web Developer Portfolio`,
-    author: `Nicholas Myers`
+    author: `Nicholas Myers`,
+    siteUrl: 'https://nmyers217.github.io/portfolio/'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
