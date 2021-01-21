@@ -47,7 +47,17 @@ module.exports = {
         },
         fetchOptions: {}
       }
+    },
+
+    // This setup will prevent web crawlers like google from indexing us
+    // Turning this off will open you up to crawlers and let you be SEOd
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        policy: [{ userAgent: '*', disallow: '/' }]
+      }
     }
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

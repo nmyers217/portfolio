@@ -3,6 +3,14 @@
 This is my personal website and portfolio that I built primarily using Gatsby 2 and React.
 It is a static site that automatically generates itself from JSON and YAML files that I can easily maintain; as well as data automtically queried from my Github profile using the Github graphql API.
 
+## Dependencies & Setup
+
+Good luck getting this to go well on windows. Use WSL if you must be on windows.
+
+You will need node, yarn, python, make, g++, and cmake for gatsby sharp to get properly installed.
+
+After that, you will need to create _.env.development_ and _.env.production_ files with a GITHUB_TOKEN variable in them. Set those up on github [here](https://github.com/settings/tokens), and give the token permissions all repo and user permissions.
+
 I have now ported the site over to Gatsby 2, and I've left the normal Gatsby documentation below for reference.
 
 ## 🚀 Quick start

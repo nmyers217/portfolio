@@ -35,6 +35,13 @@ function SEO({ description, lang, meta, title }) {
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
+        // This setup will prevent web crawlers like google from indexing us
+        // Turning this off will open you up to crawlers and let you be SEOd
+        {
+          name: 'robots',
+          content: 'noindex,nofollow'
+        },
+
         {
           name: `description`,
           content: metaDescription

@@ -10,19 +10,32 @@ const Project = ({
   description,
   stargazers,
   forkCount,
-  languages
+  languages,
+  homepageUrl
 }) => {
   const language = languages.edges.slice().shift().node;
 
   return (
     <div key={id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 mt30">
       <div className="services-box">
-        <h3 className="service-name">
-          <GoRepo size="2rem" />{' '}
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            {name}
-          </a>
-        </h3>
+        <div>
+          <h3 className="service-name" style={{}}>
+            <GoRepo size="2rem" />{' '}
+            <a href={url} target="_blank" rel="noopener noreferrer">
+              {name}
+            </a>
+            {homepageUrl && (
+              <span>
+                {' '}
+                (
+                <a href={homepageUrl} target="_blank" rel="noopener noreferrer">
+                  Demo
+                </a>
+                )
+              </span>
+            )}
+          </h3>
+        </div>
         <span>
           <span
             style={{
@@ -75,6 +88,7 @@ const Projects = () => {
                     name
                     url
                     description
+                    homepageUrl
                     stargazers {
                       totalCount
                     }
