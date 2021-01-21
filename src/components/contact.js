@@ -187,32 +187,31 @@ class ContactForm extends Component {
         Phone:   ${phone.value}
 
         ${message.value}
-    `;
+    `.trim();
     let data = new FormData();
-    data.append('_replyto', email.value);
+    data.append('email', email.value);
     data.append('message', fullMessage);
 
-    fetch(url, {
-      method: 'POST',
-      body: data,
-      headers: { Accept: 'application/json' }
-    })
-      .then(res => res.json())
-      .then(json => {
-        console.log(json);
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', url);
+    xhr.setRequestHeader('Accept', 'application/json');
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return;
+      if (xhr.status === 200) {
         this.setState(prevState =>
           fromJS(prevState)
-            .set('submissionStatus', json.ok ? 'SUCCESS' : 'ERROR')
+            .set('submissionStatus', 'SUCCESS')
             .toJS()
         );
-      })
-      .catch(error => {
+      } else {
         this.setState(prevState =>
           fromJS(prevState)
             .set('submissionStatus', 'ERROR')
             .toJS()
         );
-      });
+      }
+    };
+    xhr.send(data);
   }
 
   render() {
@@ -296,11 +295,7 @@ const Contact = ({ content }) => {
   `);
 
   return (
-    <section
-      id="contact"
-      className="background1 section-padding"
-      onChange={contact => console.log(contact)}
-    >
+    <section id="contact" className="background1 section-padding">
       <div className="container">
         <div className="row mb30">
           <div className="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 section-title text-center">
